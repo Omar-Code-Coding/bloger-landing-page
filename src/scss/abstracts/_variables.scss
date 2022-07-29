@@ -1,0 +1,41 @@
+$breakpoints: (
+  mobile: 48em,
+  desktop: 64em,
+);
+
+$font-family: (
+  overpass: "Overpass",
+  ubuntu: "Ubuntu",
+);
+
+$font-size: (
+  small: 0.625rem,
+  medium: 1rem,
+  large: 1.125rem,
+);
+
+$colors-primary: (
+  light-red: #ff525d,
+  very-light-red: #ff7a85,
+  very-dark-blue: #1f3f5b,
+);
+
+$colors-neutral: (
+  white: #ffffff,
+  grayish-blue: #c8c8cb,
+  very-dark-grayish-blue: #4b5862,
+  very-dark-black-blue: #25252d,
+);
+
+$gradient: (
+  // Background gradient - Intro/CTA mobile nav
+  gradient1:
+    linear-gradient(
+      135deg,
+      rgba(255, 143, 112, 1) 33%,
+      rgba(255, 61, 84, 1) 100%
+    ),
+  // Background gradient - body
+  gradient2:
+    linear-gradient(135deg, rgba(44, 45, 63, 1) 33%, rgba(63, 65, 100, 1) 100%)
+);

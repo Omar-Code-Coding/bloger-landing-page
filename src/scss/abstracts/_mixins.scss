@@ -1,0 +1,27 @@
+@use "functions" as *;
+@use "variables" as *;
+
+@mixin media-max($breakpoint) {
+  @media screen and (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+// Desktop sizes
+@mixin media-min($breakpoint) {
+  @media screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin hover-bg-color($bg-color: null) {
+  &:hover {
+    @if $bg-color == transparent {
+      background-color: color-neutral(white);
+      color: color-neutral(very-dark-grayish-blue);
+    } @else {
+      transform: translateY(-10%);
+      box-shadow: 0 rem(1) rem(5) rgba($color: black, $alpha: 0.3);
+    }
+  }
+}

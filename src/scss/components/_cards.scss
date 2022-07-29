@@ -1,0 +1,42 @@
+@use "../abstracts/" as *;
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  &__img-wrapper {
+    flex: 0 1 50%;
+  }
+
+  // &__body,
+  // &__body-1,
+  // &__body-2 {
+  //   max-width: rem(508);
+  //   height: min-content;
+  // }
+
+  &__col {
+    @include media-min(breakpoint(desktop)) {
+      flex: 0 1 50%;
+    }
+  }
+
+  &__title {
+    margin-block-end: rem(16);
+    color: color-primary(very-dark-blue);
+  }
+
+  &__text {
+    line-height: rem(25);
+    color: color-neutral(very-dark-grayish-blue);
+  }
+}
+
+.card--single {
+  @include media-min(breakpoint(desktop)) {
+    // grid-template-columns: rem(508);
+    grid-template-rows: rem(250);
+    grid-template-areas: "img body";
+  }
+}

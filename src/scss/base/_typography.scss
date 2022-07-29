@@ -1,0 +1,129 @@
+@use "../abstracts/" as *;
+
+html {
+  font-size: size(medium);
+}
+
+body {
+  font-family: font(overpass), sans-serif;
+}
+
+button {
+  font-family: font(ubuntu), sans-serif;
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+//////////////////////////////////
+// Sections
+.header__heading {
+  text-align: center;
+  color: color-neutral(white);
+
+  &-main {
+    font-weight: 400;
+    @include media-min(breakpoint(desktop)) {
+      font-size: rem(60);
+    }
+  }
+
+  &-sub {
+    font-weight: 300;
+  }
+}
+
+.nav {
+  &__login-btn {
+    color: color-neutral(very-dark-black-blue);
+  }
+
+  &__accordion-link {
+    font-weight: 600;
+    color: color-neutral(very-dark-black-blue);
+
+    &:active {
+      color: color-neutral(very-dark-grayish-blue);
+    }
+  }
+
+  &__accordion-content {
+    * {
+      font-size: rem(13);
+      font-weight: 600;
+      color: color-neutral(very-dark-grayish-blue);
+      text-align: center;
+
+      &:hover {
+        color: color-neutral(very-dark-black-blue);
+      }
+    }
+  }
+}
+
+.content {
+  // Global style for all Contents's list heading
+  &__list-heading {
+    color: color-primary(very-dark-blue);
+  }
+
+  // Global style for all Contents's list text
+  &__list-par {
+  }
+
+  &__mid-section-list {
+    color: color-neutral(white);
+  }
+}
+
+// Footer links here (Product, Company, Connect)
+.footer {
+  &__links-container {
+    text-align: center;
+    text-decoration: 0;
+    color: color-neutral(grayish-blue);
+  }
+
+  &__links-heading {
+    // Add space between heading and links
+    line-height: rem(65);
+    color: color-neutral(white);
+  }
+
+  &__links {
+    // Add space between links
+    line-height: rem(30);
+    a {
+      color: color-neutral(grayish-blue);
+    }
+  }
+}
+
+@include media-min(breakpoint(desktop)) {
+  .nav {
+    &__accordion-link {
+      color: color-neutral(grayish-blue);
+
+      &:hover {
+        color: color-neutral(white);
+        text-decoration: underline;
+      }
+    }
+
+    &__accordion-content {
+      * {
+        text-align: left;
+
+        &:hover {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

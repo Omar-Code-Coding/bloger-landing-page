@@ -1,0 +1,9 @@
+@use "../abstracts/" as *;
+
+.content {
+  &__list {
+    @include media-min(breakpoint(desktop)) {
+      flex: 0 1 37%;
+    }
+  }
+}

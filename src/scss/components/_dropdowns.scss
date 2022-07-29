@@ -1,0 +1,67 @@
+@use "../abstracts" as *;
+
+.dropdown {
+  &-container {
+    display: inline-block;
+    position: relative;
+    @include media-min(breakpoint(desktop)) {
+      width: 100%;
+      margin: 0 0 0 rem(50);
+    }
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 80vw;
+
+    border-radius: rem(5);
+    padding: rem(25) rem(15);
+
+    background-color: color-neutral(white);
+    animation: expand 300ms ease;
+
+    // Relative to "dropdown-btn"
+    position: absolute;
+    top: 200%;
+    right: 0;
+    overflow: hidden;
+    z-index: 1;
+    @include media-min(breakpoint(desktop)) {
+      flex-direction: row;
+      width: unset;
+      transform: unset;
+      position: unset;
+      background-color: transparent;
+    }
+  }
+
+  &-btn {
+    // Create a round button
+    outline: 0;
+    border: 0;
+    border-radius: 50%;
+    padding: rem(15) rem(10);
+    transform: rotate(90deg);
+    background-color: transparent;
+
+    // Hide btn in desktop size
+    @include media-min(breakpoint(desktop)) {
+      display: none;
+    }
+
+    // Create background shadow effect on click
+    &:active {
+      animation: btnOnClick 280ms ease-out;
+    }
+
+    // Create a hamburger menu button
+    > * {
+      margin: rem(3);
+      padding: rem(8) rem(1);
+      background-color: white;
+    }
+  }
+}

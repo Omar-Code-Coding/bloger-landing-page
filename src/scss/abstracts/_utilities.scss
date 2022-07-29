@@ -1,0 +1,42 @@
+@use "functions" as *;
+
+.nav {
+  &__dropdown-content.menu-close {
+    display: none;
+  }
+
+  &__accordion-content.collapse {
+    display: none;
+  }
+
+  &__accordion-content.collapsing {
+    height: 0;
+    transition: height 350ms ease;
+  }
+
+  &__accordion-content.collapse-open {
+    display: block;
+  }
+
+  &__accordion.open {
+    > .accordion-link {
+      // change color of Accordion on click
+      color: color-neutral(very-dark-grayish-blue);
+      &::after {
+        // Rotate the arrow next to Accordion on Click
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+// Utility class for "accodrdon"
+// .accordion.open {
+//     > a {
+//         // change color of Accordion on click
+//         color: color-neutral(very-dark-grayish-blue);
+//         &::after {
+//             // Rotate the arrow next to Accordion on Click
+//             transform: rotate(180deg);
+//         }
+//     }
+// }

@@ -1,0 +1,18 @@
+@use "../abstracts" as *;
+
+.btn {
+  cursor: pointer;
+  outline: 0;
+  border: 0;
+  border-radius: rem(20);
+  padding: rem(10) rem(15);
+  color: color-primary(light-red);
+  background-color: color-neutral(white);
+  transition: background-color 200ms ease, transform 200ms ease;
+
+  &--transparent {
+    border: rem(1) solid color-neutral(white);
+    color: color-neutral(white);
+    background-color: transparent;
+  }
+}

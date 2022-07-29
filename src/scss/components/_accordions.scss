@@ -1,0 +1,55 @@
+@use "../abstracts/" as *;
+.accordion {
+  // Set bottom margin
+  margin: 0 0 rem(20) 0;
+  @include media-min(breakpoint(desktop)) {
+    // Set left margin
+    margin: 0 0 0 rem(20);
+  }
+
+  &-link {
+    // Adjust arrows placement
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    // Add space between "accordion__link" and the Arrow
+    gap: 0 rem(5);
+    @include media-min(breakpoint(desktop)) {
+      position: relative;
+    }
+
+    // Add arrows next to "accordion__link"
+    &::after {
+      content: "";
+      display: block;
+      height: rem(10);
+      width: rem(10);
+      background-image: url(/src/images/icon-arrow-dark.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      transition: 300ms ease;
+      @include media-min(breakpoint(desktop)) {
+        background-image: url(/src/images/icon-arrow-light.svg);
+      }
+    }
+  }
+
+  &-content {
+    padding: rem(10) rem(25);
+    background-color: lighten($color: color-neutral(grayish-blue), $amount: 15);
+    overflow: hidden;
+    // transition: height 300ms ease;
+    @include media-min(breakpoint(desktop)) {
+      position: absolute;
+      width: 7.5%;
+      border-radius: rem(5);
+      box-shadow: rem(5) rem(5) rem(5) rgba($color: #000000, $alpha: 0.3);
+    }
+
+    // add padding to all links
+    > * {
+      margin: rem(12) 0;
+    }
+  }
+}
