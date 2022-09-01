@@ -1,42 +1,48 @@
 @use "functions" as *;
+@use "variables" as *;
+@use "mixins" as *;
 
-.nav {
-  &__dropdown-content.menu-close {
-    display: none;
+.pad {
+  &--x-1 {
+    padding-inline: 10%;
   }
 
-  &__accordion-content.collapse {
-    display: none;
+  &--x-2 {
+    padding-inline: 14%;
   }
 
-  &__accordion-content.collapsing {
-    height: 0;
-    transition: height 350ms ease;
+  &--x-3 {
+    padding-inline: 20%;
   }
 
-  &__accordion-content.collapse-open {
-    display: block;
+  &--r-3 {
+    @include min-width-query(breakpoint(desktop)) {
+      padding-inline-end: 30%;
+      padding-inline-start: 0;
+    }
   }
 
-  &__accordion.open {
-    > .accordion-link {
-      // change color of Accordion on click
-      color: color-neutral(very-dark-grayish-blue);
-      &::after {
-        // Rotate the arrow next to Accordion on Click
-        transform: rotate(180deg);
-      }
+  &--r-2 {
+    @include min-width-query(breakpoint(desktop)) {
+      padding-inline-end: 18%;
+    }
+  }
+
+  &--r-1 {
+    @include min-width-query(breakpoint(desktop)) {
+      padding-inline-end: 16.7%;
+    }
+  }
+
+  &--l {
+    @include min-width-query(breakpoint(desktop)) {
+      padding-inline-start: 22%;
     }
   }
 }
-// Utility class for "accodrdon"
-// .accordion.open {
-//     > a {
-//         // change color of Accordion on click
-//         color: color-neutral(very-dark-grayish-blue);
-//         &::after {
-//             // Rotate the arrow next to Accordion on Click
-//             transform: rotate(180deg);
-//         }
-//     }
-// }
+
+/* Margin */ /////////////////////////////////////////////////////////////////
+//////////////
+.mg--y {
+  margin-block: 30vh 18%;
+}

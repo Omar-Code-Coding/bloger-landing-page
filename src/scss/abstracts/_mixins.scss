@@ -1,14 +1,14 @@
 @use "functions" as *;
 @use "variables" as *;
 
-@mixin media-max($breakpoint) {
+@mixin max-width-query($breakpoint) {
   @media screen and (max-width: $breakpoint) {
     @content;
   }
 }
 
 // Desktop sizes
-@mixin media-min($breakpoint) {
+@mixin min-width-query($breakpoint) {
   @media screen and (min-width: $breakpoint) {
     @content;
   }
@@ -17,7 +17,7 @@
 @mixin hover-bg-color($bg-color: null) {
   &:hover {
     @if $bg-color == transparent {
-      background-color: color-neutral(white);
+      background: color-neutral(white);
       color: color-neutral(very-dark-grayish-blue);
     } @else {
       transform: translateY(-10%);

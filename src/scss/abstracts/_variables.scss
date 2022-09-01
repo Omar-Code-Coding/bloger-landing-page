@@ -7,11 +7,17 @@ $font-family: (
   overpass: "Overpass",
   ubuntu: "Ubuntu",
 );
-
+// prettier-ignore
 $font-size: (
-  small: 0.625rem,
-  medium: 1rem,
-  large: 1.125rem,
+  sm-1: 0.625rem, // 10px
+  sm-2: 0.8215rem, // 13px
+  sm-3: 0.875rem, // 14px
+  md-1: 1rem, // 16px
+  lg-1: 1.125rem, // 18px
+  lg-2: 1.4rem, // 22.5px
+  lg-3: 1.625rem, // 26px
+  lg-4: 2.125rem, // 34px
+  lg-5: 3.75rem, // 60px
 );
 
 $colors-primary: (
@@ -22,6 +28,7 @@ $colors-primary: (
 
 $colors-neutral: (
   white: #ffffff,
+  grayish-white: #e4e4e5,
   grayish-blue: #c8c8cb,
   very-dark-grayish-blue: #4b5862,
   very-dark-black-blue: #25252d,
@@ -29,13 +36,27 @@ $colors-neutral: (
 
 $gradient: (
   // Background gradient - Intro/CTA mobile nav
-  gradient1:
-    linear-gradient(
-      135deg,
-      rgba(255, 143, 112, 1) 33%,
-      rgba(255, 61, 84, 1) 100%
-    ),
+  gradient-1: #ff8f70,
+  gradient-2: #ff3d54,
   // Background gradient - body
-  gradient2:
-    linear-gradient(135deg, rgba(44, 45, 63, 1) 33%, rgba(63, 65, 100, 1) 100%)
+  gradient-3: #2c2d3f,
+  gradient-4: #3f4164
+);
+
+$header-gradient: linear-gradient(
+  135deg,
+  map-get($gradient, gradient-1),
+  map-get($gradient, gradient-2) 100%
+);
+
+$card-gradient: linear-gradient(
+  135deg,
+  map-get($gradient, gradient-3) 33%,
+  map-get($gradient, gradient-4) 100%
+);
+
+$btn-gradient: linear-gradient(
+  135deg,
+  map-get($gradient, gradient-1),
+  map-get($gradient, gradient-2)
 );

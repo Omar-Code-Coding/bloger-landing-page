@@ -1,19 +1,20 @@
 @use "../abstracts" as *;
 
 .dropdown {
-  &-container {
+  &__container {
     display: inline-block;
     position: relative;
-    @include media-min(breakpoint(desktop)) {
+    @include min-width-query(breakpoint(desktop)) {
       width: 100%;
       margin: 0 0 0 rem(50);
     }
   }
 
-  &-content {
+  &__content {
     display: flex;
     flex-direction: column;
     align-items: center;
+    row-gap: rem(25);
 
     width: 80vw;
 
@@ -21,16 +22,17 @@
     padding: rem(25) rem(15);
 
     background-color: color-neutral(white);
-    animation: expand 300ms ease;
 
-    // Relative to "dropdown-btn"
+    // Relative to "dropdown-btn" class
     position: absolute;
-    top: 200%;
+    top: 175%;
     right: 0;
     overflow: hidden;
     z-index: 1;
-    @include media-min(breakpoint(desktop)) {
+
+    @include min-width-query(breakpoint(desktop)) {
       flex-direction: row;
+      justify-content: space-between;
       width: unset;
       transform: unset;
       position: unset;
@@ -38,8 +40,18 @@
     }
   }
 
-  &-btn {
-    // Create a round button
+  &__content.menu-close {
+    display: none;
+  }
+
+  &__content.closing {
+    height: 0;
+    overflow: hidden;
+    transition: height 350ms ease;
+  }
+
+  &__btn {
+    cursor: pointer;
     outline: 0;
     border: 0;
     border-radius: 50%;
@@ -48,7 +60,7 @@
     background-color: transparent;
 
     // Hide btn in desktop size
-    @include media-min(breakpoint(desktop)) {
+    @include min-width-query(breakpoint(desktop)) {
       display: none;
     }
 

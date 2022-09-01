@@ -1,42 +1,142 @@
 @use "../abstracts/" as *;
 
 .card {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  // prettier-ignore
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "img"
+    "txtOne"
+    "txtTwo";
+  text-align: center;
 
-  &__img-wrapper {
-    flex: 0 1 50%;
+  @include min-width-query(breakpoint(desktop)) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "img txtOne"
+      "img txtTwo";
+    grid-auto-rows: rem(240);
+    align-items: center;
+    text-align: left;
   }
 
-  // &__body,
-  // &__body-1,
-  // &__body-2 {
-  //   max-width: rem(508);
-  //   height: min-content;
-  // }
+  &--1-row {
+    @include min-width-query(breakpoint(desktop)) {
+      grid-template-areas: "img txtOne";
+    }
+  }
 
-  &__col {
-    @include media-min(breakpoint(desktop)) {
-      flex: 0 1 50%;
+  &--invert-order {
+    @include min-width-query(breakpoint(desktop)) {
+      grid-template-areas:
+        "txtOne img"
+        "txtTwo img";
+    }
+  }
+
+  &--gradient-bg {
+    padding-block: rem(210) rem(85);
+    background: url(/src/images/bg-pattern-circles.svg) no-repeat,
+      $card-gradient;
+    background-position: center -230px, 0;
+    background-size: 580px auto, auto;
+
+    @include min-width-query(breakpoint(desktop)) {
+      background-position: left -15rem, 0;
+    }
+  }
+
+  &--round-border {
+    border-radius: 0 rem(120) 0 rem(120);
+  }
+
+  &__text-container {
+    padding-block: 5%;
+
+    &[data-text-container="1"] {
+      grid-area: txtOne;
+    }
+
+    &[data-text-container="2"] {
+      grid-area: txtTwo;
     }
   }
 
   &__title {
     margin-block-end: rem(16);
+    font-weight: 500;
+    font-size: size(lg-3);
     color: color-primary(very-dark-blue);
+
+    @include min-width-query(breakpoint(desktop)) {
+      font-size: size(lg-2);
+    }
+
+    &--lg-font {
+      font-size: size(lg-4);
+    }
+
+    &--light {
+      color: color-neutral(white);
+    }
   }
 
   &__text {
     line-height: rem(25);
+    font-weight: 300;
     color: color-neutral(very-dark-grayish-blue);
-  }
-}
 
-.card--single {
-  @include media-min(breakpoint(desktop)) {
-    // grid-template-columns: rem(508);
-    grid-template-rows: rem(250);
-    grid-template-areas: "img body";
+    @include min-width-query(breakpoint(desktop)) {
+      font-size: size(sm-3);
+    }
+
+    &--light {
+      color: color-neutral(grayish-white);
+    }
+  }
+
+  &__img-container {
+    @include min-width-query(breakpoint(desktop)) {
+      // grid-column: 1 / span 1;
+      // grid-row: 1 / span 2;
+      grid-area: img;
+    }
+
+    &--pos-left {
+      @include min-width-query(breakpoint(desktop)) {
+        position: absolute;
+        left: -41%;
+      }
+    }
+
+    &--pos-right {
+      @include min-width-query(breakpoint(desktop)) {
+        position: absolute;
+        right: -35.5%;
+        top: -41%;
+      }
+    }
+
+    &--pos-top {
+      position: absolute;
+      bottom: 65%;
+
+      @include min-width-query(breakpoint(desktop)) {
+        position: unset;
+      }
+    }
+  }
+
+  &__img {
+    &--wd-pct {
+      width: 100%;
+    }
+
+    &--wd-vw {
+      @include min-width-query(breakpoint(desktop)) {
+        width: 60vw;
+      }
+    }
   }
 }

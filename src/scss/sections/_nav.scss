@@ -1,4 +1,5 @@
 @use "../abstracts/" as *;
+@use "sass:color";
 .nav {
   display: flex;
   justify-content: space-between;
@@ -7,39 +8,44 @@
   align-self: normal;
   // padding: rem(60) rem(25);
 
+  &__login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: normal;
+    row-gap: rem(7);
+    padding-block-start: rem(15);
+
+    border-block-start: scale-color(
+        $color: color-neutral(grayish-blue),
+        $lightness: 40%
+      )
+      solid rem(1);
+
+    @include min-width-query(breakpoint(desktop)) {
+      flex-direction: row;
+      border: unset;
+      padding-block-start: unset;
+    }
+  }
+
   &__logo {
     width: clamp(5.85rem, 7.013%, 6.31rem);
   }
 
-  &__accordion {
-    // Make "accordion__content" background-color fill the entier area
-    align-self: normal;
-
-    @include media-min(breakpoint(desktop)) {
-      align-self: unset;
-    }
-  }
-
-  &__login-container {
-    @include media-min(breakpoint(desktop)) {
-      margin-inline-start: auto;
-    }
-  }
-
   &__login-btn.btn {
     // Change .button default color for mobile size
-    color: color-neutral(very-dark-grayish-blue);
     border: 0;
     @include hover-bg-color(transparent);
-    // media query
-    @include media-min(breakpoint(desktop)) {
-      color: color-neutral(white);
-    }
   }
 
-  &__sign-btn {
+  &__sign-btn.btn {
     margin-inline-start: rem(7);
-    padding: rem(10) rem(30);
+    padding: rem(10) rem(27);
     @include hover-bg-color;
+
+    @include min-width-query(breakpoint(desktop)) {
+      background: color-neutral(white);
+    }
   }
 }

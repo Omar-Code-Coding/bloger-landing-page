@@ -1,86 +1,89 @@
+import "regenerator-runtime/runtime.js";
+import wait from "./helperFunctions.js";
 export default class Accordion {
-  accordionContainer = document.querySelector(".dropdown-content");
-  accordion = document.querySelectorAll(".accordion");
-  accordionLink = document.querySelectorAll(".accordion-link");
-  accordionContent = document.querySelectorAll(".accordion-content");
+  #accordionContainer = document.querySelector(".accordions-container");
+  #accordion = document.querySelectorAll(".accordion");
+  #accordionBtn = document.querySelectorAll(".accordion__btn");
+  #accordionLinks = document.querySelectorAll(".accordion__links");
 
   constructor() {
-    // Elements
-
     // Events
-    document.addEventListener("click", this._closeAccordion.bind(this), {
-      capture: true,
-    });
-    this.accordionContainer.addEventListener(
+    this.#accordionContainer.addEventListener(
       "click",
-      this._toggleAccordion.bind(this)
+      this.#toggleAccordion.bind(this)
     );
+    this.init();
   }
 
-  _shrinkAccordion() {
-    const windowWidth = window.innerWidth;
-    const accordionContainer = this.accordionContainer;
-    // Expand accordion for desktop size
-    if (windowWidth > 1024) accordionContainer.classList.remove("menu-close");
-
-    // Shrink accordions into a menu for mobile size
-    if (windowWidth < 1024) accordionContainer.classList.add("menu-close");
+  init() {
+    this.#accordionLinks.forEach((el) => el.classList.add("collapse"));
+    this.#accordionBtn.forEach((el) => el.classList.add("close"));
   }
 
-  _toggleAccordion(e) {
-    // Return if Clicked element is not "accoridonLink"
-    if (!e.target.classList.contains("nav__accordion-link")) return;
-    const currentAccordion = e.target.nextElementSibling;
+  #toggleAccordion(e) {
+    // Doesn't Activate, Disable accoridon if not clicked directly
+    if (!e.target.classList.contains("accordion__btn")) return;
+    const activeAccordion = e.target.nextElementSibling;
+    e.preventDefault();
 
-    // Close Accordion
-    if (!currentAccordion.classList.contains("collapse"))
-      return this._closeAccordion();
+    // Disable Accordion
+    if (!activeAccordion.classList.contains("collapse")) {
+      return this.#closeAccordion(e);
+    }
 
-    // Open Accordion
-    if (currentAccordion.classList.contains("collapse"))
-      return this._openAccordion(e);
+    // Activate Accordion
+    if (activeAccordion.classList.contains("collapse")) {
+      return this.#openAccordion(e);
+    }
   }
 
-  _openAccordion(e) {
-    const currentAccordion = e.target.nextElementSibling;
-    const currentAccordionIcon = currentAccordion.closest(".nav__accordion");
+  #openAccordion(e) {
+    const activeAccordionBtn = e.target;
+    const activeAccordion = e.target.nextElementSibling;
+    // 1- Active accordion
+    activeAccordion.classList.remove("collapse");
+    // --1- Rotate Arrow next to accordion
+    activeAccordionBtn.classList.remove("close");
 
-    currentAccordion.classList.remove("collapse");
-    currentAccordionIcon.classList.add("open");
-
-    this._transitionAccordion(e);
+    // 2- Set transition
+    let accordionHeight = activeAccordion.clientHeight;
+    activeAccordion.classList.add("collapsing");
+    // --1- Set active accordion's height after x amount of time so that Transition start
+    wait(1)
+      .then(() => {
+        activeAccordion.style.height = `${accordionHeight}px`;
+        activeAccordion.style.display = "";
+        // Set transition
+        return wait(250);
+      })
+      .then(() => {
+        activeAccordion.classList.remove("collapsing");
+        activeAccordion.style = "";
+      });
   }
 
-  _closeAccordion(e) {
-    this.accordionContent.forEach((el) => {
-      if (el.classList.contains("collapse")) return;
-      this._wait(2).then(() => el.classList.add("collapse"));
-    });
-    this.accordion.forEach((el) => el.classList.remove("open"));
-  }
-
-  _transitionAccordion(e) {
-    const currentAccordion = e.target.nextElementSibling;
-    // Get the height of clicked accordion
-    const accordionHeight = e.target.nextElementSibling.clientHeight;
-
-    // Set clicked accordion's height after amount of time so that Transition start
-    this._wait(1).then(() => {
-      currentAccordion.style.height = `${accordionHeight}px`;
-      currentAccordion.style.display = "";
-    });
-
+  #closeAccordion(e) {
+    const activeAccordionBtn = e.target;
+    const activeAccordion = e.target.nextElementSibling;
+    let accordionHeight = activeAccordion.clientHeight;
     // Set transition
-    currentAccordion.classList.add("collapsing");
-    this._wait(300).then(() => {
-      currentAccordion.classList.remove("collapsing");
-      currentAccordion.style = "";
-    });
-  }
+    activeAccordion.classList.add("collapsing");
 
-  _wait(ms) {
-    return new Promise((resolve) => {
-      setTimeout(resolve, ms);
-    });
+    const utilClass = document.querySelector(".collapsing");
+    utilClass.style.height = `${accordionHeight}px`;
+
+    wait(1)
+      .then(() => {
+        activeAccordion.style.height = "0px";
+        return wait(250);
+      })
+      .then(() => {
+        activeAccordion.classList.remove("collapsing");
+        // Disable Accordion
+        activeAccordion.classList.add("collapse");
+        activeAccordion.style = "";
+      });
+    // Rotate Arrow next to accordion__btn class
+    activeAccordionBtn.classList.add("close");
   }
 }

@@ -10,15 +10,22 @@
   // Choose the smallest value
   padding-inline: Min(rem(25), 6%);
   border-bottom-left-radius: rem(85);
-  background: left / 140% no-repeat url(/src/images/bg-pattern-intro.svg),
-    gradient(gradient1);
+  background-image: url(/src/images/bg-pattern-intro.svg), $header-gradient;
+  background-size: 330%, 100%;
+  background-repeat: no-repeat;
+  background-position: 35% 33%, 0;
+  @include min-width-query(breakpoint(desktop)) {
+    background-position: 35% 33%, 0;
+    background-size: 330%, 100%;
+  }
 
-  &__learn-btn {
+  &__learn-btn.btn {
     margin-inline-start: rem(7);
+    padding-inline: rem(18);
     @include hover-bg-color(transparent);
   }
 
-  &__start-btn {
+  &__start-btn.btn {
     @include hover-bg-color;
   }
 }
@@ -32,7 +39,7 @@
   }
 }
 
-@include media-min(64em) {
+@include min-width-query(64em) {
   .header {
     // Choose the biggest value
     padding-inline: Max(rem(150), 11%);

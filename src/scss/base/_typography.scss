@@ -1,16 +1,11 @@
 @use "../abstracts/" as *;
 
 html {
-  font-size: size(medium);
+  font-size: size(md-1);
 }
 
 body {
   font-family: font(overpass), sans-serif;
-}
-
-button {
-  font-family: font(ubuntu), sans-serif;
-  font-weight: 700;
 }
 
 a {
@@ -28,9 +23,9 @@ ul {
   color: color-neutral(white);
 
   &-main {
-    font-weight: 400;
-    @include media-min(breakpoint(desktop)) {
-      font-size: rem(60);
+    font-weight: 500;
+    @include min-width-query(breakpoint(desktop)) {
+      font-size: size(lg-5);
     }
   }
 
@@ -40,45 +35,45 @@ ul {
 }
 
 .nav {
-  &__login-btn {
-    color: color-neutral(very-dark-black-blue);
-  }
-
-  &__accordion-link {
+  &__login-btn.btn {
+    font-family: font(overpass);
+    font-size: size(md-1);
     font-weight: 600;
-    color: color-neutral(very-dark-black-blue);
+    color: color-neutral(very-dark-grayish-blue);
 
-    &:active {
-      color: color-neutral(very-dark-grayish-blue);
+    @include min-width-query(breakpoint(desktop)) {
+      font-family: font(ubuntu);
+      font-size: size(sm-2);
+      color: color-neutral(white);
     }
   }
 
-  &__accordion-content {
-    * {
-      font-size: rem(13);
-      font-weight: 600;
-      color: color-neutral(very-dark-grayish-blue);
-      text-align: center;
-
-      &:hover {
-        color: color-neutral(very-dark-black-blue);
-      }
+  &__sign-btn.btn {
+    // font-size: ;
+    @include min-width-query(breakpoint(desktop)) {
+      color: color-primary(light-red);
     }
   }
 }
 
 .content {
-  // Global style for all Contents's list heading
-  &__list-heading {
+  &__heading {
+    @include min-width-query(breakpoint(desktop)) {
+      font-size: size(lg-4);
+    }
+    font-weight: 500;
     color: color-primary(very-dark-blue);
   }
+}
 
-  // Global style for all Contents's list text
-  &__list-par {
+.content__card-2 {
+  &-title.card__title {
+    font-size: size(lg-4);
+    color: color-neutral(white);
   }
 
-  &__mid-section-list {
-    color: color-neutral(white);
+  &-text.card__text {
+    color: color-neutral(grayish-white);
   }
 }
 
@@ -101,29 +96,6 @@ ul {
     line-height: rem(30);
     a {
       color: color-neutral(grayish-blue);
-    }
-  }
-}
-
-@include media-min(breakpoint(desktop)) {
-  .nav {
-    &__accordion-link {
-      color: color-neutral(grayish-blue);
-
-      &:hover {
-        color: color-neutral(white);
-        text-decoration: underline;
-      }
-    }
-
-    &__accordion-content {
-      * {
-        text-align: left;
-
-        &:hover {
-          font-weight: 600;
-        }
-      }
     }
   }
 }

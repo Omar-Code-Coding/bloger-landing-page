@@ -1,5 +1,5 @@
-@use "variables" as *;
 @use "sass:math";
+@use "variables" as *;
 
 @function rem($pixels, $context: 16) {
   @return math.div($pixels, $context) * 1rem;
@@ -19,10 +19,6 @@
 
 @function color-neutral($color) {
   @return map-get($map: $colors-neutral, $key: $color);
-}
-
-@function gradient($num) {
-  @return map-get($map: $gradient, $key: $num);
 }
 
 @function breakpoint($size) {
