@@ -9,14 +9,10 @@
       sizes="32x32"
       href="736eae1ff09acfe04c50.png"
     />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Overpass:wght@300;600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Overpass:wght@300;400;500;600&family=Ubuntu:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Overpass:wght@300;400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
     <title>Blogr</title>
@@ -28,84 +24,86 @@
         <nav class="nav">
           <img src="1591bc20b914c098a9cd.svg" alt="Blogr logo" class="nav__logo" />
 
-          <div class="nav__dropdown-container dropdown-container">
-            <button class="nav__dropdown-btn dropdown-btn">
+          <div class="nav__dropdown-container dropdown__container">
+            <button class="nav__dropdown-btn dropdown__btn">
               <span></span>
               <span></span>
               <span></span>
             </button>
             <!---- nav mobile menu ---->
-            <div class="nav__dropdown-content dropdown-content">
-              <div class="nav__accordion accordion">
-                <a
-                  class="nav__accordion-link accordion-link"
-                  href="#"
-                  data-acc="1"
-                  >Product</a
-                >
-                <!----- tabs accordion content----->
-                <ul class="nav__accordion-content accordion-content collapse">
-                  <li>
-                    <a href="#">Overview</a>
-                  </li>
-                  <li>
-                    <a href="#">Pricing</a>
-                  </li>
-                  <li>
-                    <a href="#">Marketplace</a>
-                  </li>
-                  <li>
-                    <a href="#">Features</a>
-                  </li>
-                  <li>
-                    <a href="#">Integrations</a>
-                  </li>
-                </ul>
-              </div>
+            <div class="nav__dropdown-content dropdown__content">
+              <div class="accordions-container">
+                <div class="nav__accordion accordion">
+                  <a
+                    class="nav__accordion-btn accordion__btn"
+                    href="#"
+                    data-acc="1"
+                    >Product</a
+                  >
+                  <!----- tabs accordion content----->
+                  <ul class="nav__accordion-links accordion__links">
+                    <li>
+                      <a href="#">Overview</a>
+                    </li>
+                    <li>
+                      <a href="#">Pricing</a>
+                    </li>
+                    <li>
+                      <a href="#">Marketplace</a>
+                    </li>
+                    <li>
+                      <a href="#">Features</a>
+                    </li>
+                    <li>
+                      <a href="#">Integrations</a>
+                    </li>
+                  </ul>
+                </div>
 
-              <div class="nav__accordion accordion">
-                <a
-                  class="nav__accordion-link accordion-link"
-                  href="#"
-                  data-acc="2"
-                  >Company</a
-                >
-                <!----- tabs accordion content----->
-                <ul class="nav__accordion-content accordion-content collapse">
-                  <li>
-                    <a href="#">About</a>
-                  </li>
-                  <li>
-                    <a href="#">Team</a>
-                  </li>
-                  <li>
-                    <a href="#">Blog</a>
-                  </li>
-                  <li>
-                    <a href="#">Careers</a>
-                  </li>
-                </ul>
-              </div>
+                <div class="nav__accordion accordion">
+                  <a
+                    class="nav__accordion-btn accordion__btn"
+                    href="#"
+                    data-acc="2"
+                    >Company</a
+                  >
+                  <!----- tabs accordion content----->
+                  <ul class="nav__accordion-links accordion__links">
+                    <li>
+                      <a href="#">About</a>
+                    </li>
+                    <li>
+                      <a href="#">Team</a>
+                    </li>
+                    <li>
+                      <a href="#">Blog</a>
+                    </li>
+                    <li>
+                      <a href="#">Careers</a>
+                    </li>
+                  </ul>
+                </div>
 
-              <div class="nav__accordion accordion">
-                <a
-                  class="nav__accordion-link accordion-link"
-                  href="#"
-                  data-acc="3"
-                  >Connect</a
-                >
-                <!----- accordion  content----->
-                <ul class="nav__accordion-content accordion-content collapse">
-                  <li>
-                    <a href="#">Contact</a>
-                  </li>
-                  <li>
-                    <a href="#">Newsletter</a>
-                  </li>
-                  <li>
-                    <a href="#">LinkedIn</a>
-                  </li>
-                </ul>
+                <div class="nav__accordion accordion">
+                  <a
+                    class="nav__accordion-btn accordion__btn"
+                    href="#"
+                    data-acc="3"
+                    >Connect</a
+                  >
+                  <!----- accordion  content----->
+                  <ul class="nav__accordion-links accordion__links">
+                    <li>
+                      <a href="#">Contact</a>
+                    </li>
+                    <li>
+                      <a href="#">Newsletter</a>
+                    </li>
+                    <li>
+                      <a href="#">LinkedIn</a>
+                    </li>
+                  </ul>
+                </div>
               </div>
 
               <div class="nav__login-container">
@@ -126,120 +124,126 @@
         </div>
 
         <div class="header__cta">
-          <button class="header__start-btn btn">Start for Free</button>
+          <button class="header__start-btn btn btn--white">
+            Start for Free
+          </button>
           <button class="header__learn-btn btn btn--transparent">
             Learn More
           </button>
         </div>
       </header>
 
-      <main class="content-wrapper">
-        <!---- Top content ---->
-        <section class="content-1 content">
-          <h2 class="content-1__heading">Designed for the future</h2>
+      <main class="content">
+        <h2 class="content__heading">Designed for the future</h2>
 
-          <div class="content-1__card card">
-            <div class="card__col">
-              <div class="content-1__card-body-1 card__body-1">
-                <h3 class="content-1__card-title-1 card__title">
-                  Introducing an extensible editor
-                </h3>
-                <p class="content-1__card-text-1 card__text">
-                  Blogr features an exceedingly intuitive interface which lets
-                  you focus on one thing: creating content. The editor supports
-                  management of multiple blogs and allows easy manipulation of
-                  embeds such as images, videos, and Markdown. Extensibility with
-                  plugins and themes provide easy ways to add functionality or
-                  change the looks of a blog.
-                </p>
-              </div>
-              <div class="content-1__card-body-1 card__body-2">
-                <h3 class="content-1__card-title-2 card__title">
-                  Robust content management
-                </h3>
-                <p class="content-1__card-text-2 card__text">
-                  Flexible content management enables users to easily move through
-                  posts. Increase the usability of your blog by adding customized
-                  categories, sections, format, or flow. With this functionality,
-                  you’re in full control.
-                </p>
-              </div>
-            </div>
+        <!-- content section-1 -->
+        <section class="card card--invert-order">
+          <div class="card__img-container card__img-container--pos-right">
+            <img
+              src="c6c8050aa4dcf0c64b44.svg"
+              alt="editor illustration"
+              class="card__img card__img--wd-vw"
+              data-img="img-1"
+            />
+          </div>
 
-            <div class="content-1__card-img-wrapper card__img-wrapper">
-              <img
-                src="c6c8050aa4dcf0c64b44.svg"
-                alt="editor illustration"
-                class="content-1__card-img card__img"
-              />
-            </div>
+          <div
+            class="card__text-container pad--x-2 pad--l pad--r-1"
+            data-text-container="1"
+          >
+            <h3 class="card__title">Introducing an extensible editor</h3>
+            <p class="card__text">
+              Blogr features an exceedingly intuitive interface which lets you
+              focus on one thing: creating content. The editor supports
+              management of multiple blogs and allows easy manipulation of
+              embeds such as images, videos, and Markdown. Extensibility with
+              plugins and themes provide easy ways to add functionality or
+              change the looks of a blog.
+            </p>
+          </div>
+
+          <div
+            class="card__text-container pad--x-2 pad--l pad--r-2"
+            data-text-container="2"
+          >
+            <h3 class="card__title">Robust content management</h3>
+            <p class="card__text">
+              Flexible content management enables users to easily move through
+              posts. Increase the usability of your blog by adding customized
+              categories, sections, format, or flow. With this functionality,
+              you’re in full control.
+            </p>
           </div>
         </section>
 
-        <!---- Section-2 ---->
-        <section class="content-2 content">
-          <!------Card's container----->
-          <div class="content-2__card card card--single">
-            <div class="content-2__card-img-wrapper card__img-wrapper">
-              <img
-                src="fd23559f1d2f81f9e3f3.svg"
-                alt="phones illustration"
-                class="content-2__card-img card__img"
-              />
-            </div>
+        <!-- content section-2 -->
+        <section
+          class="card card--1-row card--gradient-bg card--round-border mg--y"
+        >
+          <div class="card__img-container card__img-container--pos-top">
+            <img
+              src="fd23559f1d2f81f9e3f3.svg"
+              alt="phones illustration"
+              class="card__img card__img--wd-pct"
+              data-img="img-2"
+            />
+          </div>
 
-            <div class="content-2__card-body card__body">
-              <h2 class="content-2__card-title card__title">
-                State of the Art Infrastructure
-              </h2>
-              <p class="content-2__card-text card__text">
-                With reliability and speed in mind, worldwide data centers provide
-                the backbone for ultra-fast connectivity. This ensures your site
-                will load instantly, no matter where your readers are, keeping
-                your site competitive.
-              </p>
-            </div>
+          <div
+            class="card__text-container pad--r pad--x-1"
+            data-text-container="1"
+          >
+            <h2 class="card__title card__title--light card__title--lg-font">
+              State of the Art Infrastructure
+            </h2>
+            <p class="card__text card__text--light">
+              With reliability and speed in mind, worldwide data centers provide
+              the backbone for ultra-fast connectivity. This ensures your site
+              will load instantly, no matter where your readers are, keeping
+              your site competitive.
+            </p>
           </div>
         </section>
 
-        <!---- content-3---->
-        <section class="content-3 content">
-          <div class="content-3__card card">
-            <div class="content-3__card-body-1 card__body-1">
-              <h3 class="content-3__card-title-1 card__title">
-                Free, open, simple
-              </h3>
-              <p class="content-3__card-text-1 card__text">
-                Blogr is a free and open source application backed by a large
-                community of helpful developers. It supports features such as code
-                syntax highlighting, RSS feeds, social media integration,
-                third-party commenting tools, and works seamlessly with Google
-                Analytics. The architecture is clean and is relatively easy to
-                learn.
-              </p>
-            </div>
-
-            <div class="content-3__card-body-2 cardcard__body-2">
-              <h3 class="content-3__card-title-2 card__title">
-                Powerful tooling
-              </h3>
-              <p class="content-3__card-text-2 card__text">
-                Batteries included. We built a simple and straightforward CLI tool
-                that makes customization and deployment a breeze, but capable of
-                producing even the most complicated sites.
-              </p>
-            </div>
-
-            <div class="content-3__card-img-wrapper card__img-wrapper">
-              <img
-                src="799209c2628b1f244e15.svg"
-                alt="laptop illustration"
-                class="content-3__card-img card__img"
-              />
-            </div>
+        <!-- content section-3 -->
+        <section class="card content__section-3">
+          <div class="card__img-container card__img-container--pos-left">
+            <img
+              src="799209c2628b1f244e15.svg"
+              alt="laptop illustration"
+              class="card__img"
+              data-img="img-3"
+            />
           </div>
+
+          <div
+            class="card__text-container pad--r-3 pad--x-3"
+            data-text-container="1"
+          >
+            <h3 class="card__title">Free, open, simple</h3>
+            <p class="card__text">
+              Blogr is a free and open source application backed by a large
+              community of helpful developers. It supports features such as code
+              syntax highlighting, RSS feeds, social media integration,
+              third-party commenting tools, and works seamlessly with Google
+              Analytics. The architecture is clean and is relatively easy to
+              learn.
+            </p>
+          </div>
+
+          <div
+            class="card__text-container pad--r-3 pad--x-3"
+            data-text-container="2"
+          >
+            <h3 class="card__title">Powerful tooling</h3>
+            <p class="card__text">
+              Batteries included. We built a simple and straightforward CLI tool
+              that makes customization and deployment a breeze, but capable of
+              producing even the most complicated sites.
+            </p>
+          </div>
+        </section>
       </main>
-
       <footer class="footer">
         <div>
           <img src="1591bc20b914c098a9cd.svg" alt="Blogr logo" />
