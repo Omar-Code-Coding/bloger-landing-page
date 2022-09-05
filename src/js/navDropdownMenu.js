@@ -39,6 +39,17 @@ export default class DropdownMenu {
   #openMenu() {
     // 1- Activate menu
     this.#dropdownContent.classList.remove("menu-close");
+    this.#expandAnimation();
+  }
+
+  /* Disable menu */
+  #closeMenu() {
+    this.#shrinkAnimation();
+    // Disable transition after the animation finishes;
+    wait(300).then(() => this.#dropdownContent.classList.add("menu-close"));
+  }
+
+  #expandAnimation() {
     // 2- Get menu height
     const menuHeight = this.#dropdownContent.clientHeight;
     // 3- Set transition
@@ -58,30 +69,23 @@ export default class DropdownMenu {
       });
   }
 
-  /* Disable menu */
-  #closeMenu() {
-    // 1- Set transition
-    // -1-- Calculate menu height
+  #shrinkAnimation() {
     const menuHeight = this.#dropdownContent.clientHeight;
-    // -2-- Add "closing" class
+    // 1- Select "closing" class
     this.#dropdownContent.classList.add("closing");
-    // -3-- Select "closing" class
     const utilClass = document.querySelector(".closing");
-    // -4-- Set "closing" class height to menu height
+    // 2- Set "closing" class height to menu height
     utilClass.style.height = `${menuHeight}px`;
 
     wait(1)
       .then(() => {
-        // 2- Wait x amount of time to set height for Transition to work
+        // 3- Wait x amount of time to set height for Transition to work
         this.#dropdownContent.style.height = "0px";
         return wait(300);
       })
       .then(() => {
-        // 3- Remove transition class
+        // 4- Remove transition class
         this.#dropdownContent.classList.remove("closing");
-
-        // 4- Disable menu
-        this.#dropdownContent.classList.add("menu-close");
         this.#dropdownContent.style = "";
       });
   }

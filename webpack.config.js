@@ -9,7 +9,9 @@ const config = {
 
   target: "web",
   devServer: {
-    static: "./dist",
+    static: {
+      directory: path.join(__dirname, "dist"),
+    },
     port: 3000,
     watchFiles: "./src/scss/**/*.scss",
   },
@@ -68,7 +70,7 @@ const config = {
 
 module.exports = (env, argv) => {
   if (argv.mode === "development") {
-    config.devtool = "eval";
+    config.devtool = "eval-source-map";
   }
 
   return config;

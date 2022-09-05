@@ -30,7 +30,7 @@
 
     // Add arrows next to "accordion__link"
     &::after {
-      content: url(/src/images/icon-arrow-dark.svg);
+      content: url("/src/images/icon-arrow-dark.svg");
       display: block;
       height: rem(10);
       width: rem(10);
