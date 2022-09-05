@@ -56,12 +56,16 @@
     border: 0;
     border-radius: 50%;
     padding: rem(15) rem(10);
-    transform: rotate(90deg);
+    // transform: rotate(90deg);
     background-color: transparent;
 
     // Hide btn in desktop size
     @include min-width-query(breakpoint(desktop)) {
       display: none;
+    }
+
+    &::after {
+      content: url("/src/images/icon-hamburger.svg");
     }
 
     // Create background shadow effect on click
