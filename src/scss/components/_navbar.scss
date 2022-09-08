@@ -64,7 +64,6 @@
     @include min-width-query(breakpoint(desktop)) {
       flex-direction: row;
       justify-content: space-between;
-      width: unset;
       transform: unset;
       position: unset;
       background-color: transparent;
