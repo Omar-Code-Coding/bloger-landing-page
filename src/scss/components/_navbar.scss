@@ -1,0 +1,83 @@
+@use "../abstracts/" as *;
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  //   display: inline-block;
+  position: relative;
+  @include min-width-query(breakpoint(desktop)) {
+    width: 100%;
+    margin: 0 0 0 rem(50);
+  }
+
+  align-self: normal;
+
+  &__logo {
+    width: clamp(5.85rem, 7.013%, 6.31rem);
+  }
+
+  &__toggle {
+    cursor: pointer;
+    outline: 0;
+    border: 0;
+    border-radius: 50%;
+    padding: rem(15) rem(10);
+    // transform: rotate(90deg);
+    background-color: transparent;
+
+    // Hide btn in desktop size
+    @include min-width-query(breakpoint(desktop)) {
+      display: none;
+    }
+
+    &::after {
+      content: url("/src/images/icon-hamburger.svg");
+    }
+
+    // Create background shadow effect on click
+    &:active {
+      animation: btnOnClick 280ms ease-out;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: rem(25);
+
+    width: 80vw;
+
+    border-radius: rem(5);
+    padding: rem(25) rem(15);
+
+    background-color: color-neutral(white);
+
+    // Relative to "dropdown-btn" class
+    position: absolute;
+    top: 175%;
+    right: 0;
+    overflow: hidden;
+    z-index: 1;
+
+    @include min-width-query(breakpoint(desktop)) {
+      flex-direction: row;
+      justify-content: space-between;
+      width: unset;
+      transform: unset;
+      position: unset;
+      background-color: transparent;
+    }
+  }
+}
+
+.menu-close {
+  display: none;
+}
+
+.closing {
+  height: 0;
+  overflow: hidden;
+  transition: height 350ms ease;
+}

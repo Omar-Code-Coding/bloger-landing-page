@@ -1,83 +1,78 @@
+@use "sass:color";
 @use "../abstracts" as *;
 
 .dropdown {
-  &__container {
-    display: inline-block;
-    position: relative;
-    @include min-width-query(breakpoint(desktop)) {
-      width: 100%;
-      margin: 0 0 0 rem(50);
-    }
-  }
-
-  &__content {
+  &__toggle {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: rem(25);
+    justify-content: center;
+    font-weight: 600;
+    color: color-neutral(very-dark-grayish-blue);
 
-    width: 80vw;
-
-    border-radius: rem(5);
-    padding: rem(25) rem(15);
-
-    background-color: color-neutral(white);
-
-    // Relative to "dropdown-btn" class
-    position: absolute;
-    top: 175%;
-    right: 0;
-    overflow: hidden;
-    z-index: 1;
+    // Add space between "accordion__link" and accordion Arrow
+    gap: 0 rem(5);
 
     @include min-width-query(breakpoint(desktop)) {
-      flex-direction: row;
-      justify-content: space-between;
-      width: unset;
-      transform: unset;
-      position: unset;
-      background-color: transparent;
-    }
-  }
-
-  &__content.menu-close {
-    display: none;
-  }
-
-  &__content.closing {
-    height: 0;
-    overflow: hidden;
-    transition: height 350ms ease;
-  }
-
-  &__btn {
-    cursor: pointer;
-    outline: 0;
-    border: 0;
-    border-radius: 50%;
-    padding: rem(15) rem(10);
-    // transform: rotate(90deg);
-    background-color: transparent;
-
-    // Hide btn in desktop size
-    @include min-width-query(breakpoint(desktop)) {
-      display: none;
+      color: color-neutral(white);
     }
 
+    // Add arrows next to "accordion__link"
     &::after {
-      content: url("/src/images/icon-hamburger.svg");
-    }
-
-    // Create background shadow effect on click
-    &:active {
-      animation: btnOnClick 280ms ease-out;
-    }
-
-    // Create a hamburger menu button
-    > * {
-      margin: rem(3);
-      padding: rem(8) rem(1);
-      background-color: white;
+      content: url("/src/images/icon-arrow-dark.svg");
+      display: block;
+      height: rem(10);
+      width: rem(10);
+      transform: rotate(180deg) translateY(-86%);
+      transition: 300ms ease;
+      @include min-width-query(breakpoint(desktop)) {
+        content: url(/src/images/icon-arrow-light.svg);
+      }
     }
   }
+
+  &__menu {
+    padding: rem(10) rem(25);
+    background-color: lighten($color: color-neutral(grayish-blue), $amount: 15);
+
+    @include min-width-query(breakpoint(desktop)) {
+      position: absolute;
+      width: 7.5%;
+      border-radius: rem(5);
+      box-shadow: rem(5) rem(5) rem(5) rgba($color: #000000, $alpha: 0.3);
+    }
+  }
+
+  &__item {
+    margin: rem(12) 0;
+  }
+}
+
+.close {
+  // Change active accordion color
+  color: color-neutral(very-dark-black-blue);
+  &::after {
+    // Rotate accordion arrow
+    transform: rotate(360deg);
+  }
+
+  @include min-width-query(breakpoint(desktop)) {
+    color: color-neutral(grayish-white);
+    &:hover {
+      color: color-neutral(white);
+      text-decoration: underline;
+    }
+  }
+}
+
+.collapse {
+  display: none;
+}
+
+.collapsing {
+  height: 0;
+  overflow: hidden;
+  transition: height 350ms ease;
+}
+
+.collapse-open {
+  display: block;
 }

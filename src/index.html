@@ -21,93 +21,77 @@
   <body>
     <div class="page-wrapper">
       <header class="header">
-        <nav class="nav">
-          <img src="images/logo.svg" alt="Blogr logo" class="nav__logo" />
-
-          <div class="nav__dropdown-container dropdown__container">
-            <button class="nav__dropdown-btn dropdown__btn"></button>
-            <!---- nav mobile menu ---->
-            <div class="nav__dropdown-content dropdown__content">
-              <div class="accordions-container">
-                <div class="nav__accordion accordion">
-                  <a
-                    class="nav__accordion-btn accordion__btn"
-                    href="#"
-                    data-acc="1"
-                    >Product</a
-                  >
-                  <!----- tabs accordion content----->
-                  <ul class="nav__accordion-links accordion__links">
-                    <li>
-                      <a href="#">Overview</a>
+        <nav class="navbar">
+          <img src="images/logo.svg" alt="Blogr logo" class="navbar__logo" />
+          <button class="navbar__toggle"></button>
+          <!---- navbar mobile menu ---->
+          <div class="navbar__content">
+            <ul class="nav">
+              <li class="nav-item">
+                <div class="dropdown">
+                  <a class="dropdown__toggle" href="#" data-acc="1">Product</a>
+                  <!----- tabs dropdown content----->
+                  <ul class="dropdown__menu">
+                    <li class="dropdown__item">
+                      <a class="link" href="#">Overview</a>
                     </li>
-                    <li>
-                      <a href="#">Pricing</a>
+                    <li class="dropdown__item">
+                      <a class="link" href="#">Pricing</a>
                     </li>
-                    <li>
-                      <a href="#">Marketplace</a>
+                    <li class="dropdown__item">
+                      <a class="link" href="#">Marketplace</a>
                     </li>
-                    <li>
-                      <a href="#">Features</a>
+                    <li class="dropdown__item">
+                      <a class="link" href="#">Features</a>
                     </li>
-                    <li>
-                      <a href="#">Integrations</a>
+                    <li class="dropdown__item">
+                      <a class="link" href="#">Integrations</a>
                     </li>
                   </ul>
                 </div>
-
-                <div class="nav__accordion accordion">
-                  <a
-                    class="nav__accordion-btn accordion__btn"
-                    href="#"
-                    data-acc="2"
-                    >Company</a
-                  >
-                  <!----- tabs accordion content----->
-                  <ul class="nav__accordion-links accordion__links">
-                    <li>
-                      <a href="#">About</a>
+              </li>
+              <li class="nav-item">
+                <div class="dropdown">
+                  <a class="dropdown__toggle" href="#" data-acc="2">Company</a>
+                  <!----- tabs dropdown content----->
+                  <ul class="dropdown__menu">
+                    <li class="dropdown__item">
+                      <a class="link" href="#">About</a>
                     </li>
-                    <li>
-                      <a href="#">Team</a>
+                    <li class="dropdown__item">
+                      <a class="link" href="#">Team</a>
                     </li>
-                    <li>
-                      <a href="#">Blog</a>
+                    <li class="dropdown__item">
+                      <a class="link" href="#">Blog</a>
                     </li>
-                    <li>
-                      <a href="#">Careers</a>
+                    <li class="dropdown__item">
+                      <a class="link" href="#">Careers</a>
                     </li>
                   </ul>
                 </div>
-
-                <div class="nav__accordion accordion">
-                  <a
-                    class="nav__accordion-btn accordion__btn"
-                    href="#"
-                    data-acc="3"
-                    >Connect</a
-                  >
-                  <!----- accordion  content----->
-                  <ul class="nav__accordion-links accordion__links">
-                    <li>
-                      <a href="#">Contact</a>
+              </li>
+              <li class="nav-item">
+                <div class="dropdown">
+                  <a class="dropdown__toggle" href="#" data-acc="3">Connect</a>
+                  <!----- dropdown  content----->
+                  <ul class="dropdown__menu">
+                    <li class="dropdown__item">
+                      <a class="link" href="#">Contact</a>
                     </li>
-                    <li>
-                      <a href="#">Newsletter</a>
+                    <li class="dropdown__item">
+                      <a class="link" href="#">Newsletter</a>
                     </li>
-                    <li>
-                      <a href="#">LinkedIn</a>
+                    <li class="dropdown__item">
+                      <a class="link" href="#">LinkedIn</a>
                     </li>
                   </ul>
                 </div>
-              </div>
+              </li>
+            </ul>
 
-              <div class="nav__login-container">
-                <button class="nav__login-btn btn btn--transparent">
-                  Login
-                </button>
-                <button class="nav__sign-btn btn">Sign Up</button>
-              </div>
+            <div class="nav__login-container">
+              <button class="nav__login-btn btn btn--transparent">Login</button>
+              <button class="nav__sign-btn btn">Sign Up</button>
             </div>
           </div>
         </nav>

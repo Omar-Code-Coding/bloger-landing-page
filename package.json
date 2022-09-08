@@ -7,7 +7,7 @@
     "build": "webpack --mode production",
     "dev": "webpack --mode development",
     "watch": "webpack --watch",
-    "start": "webpack serve --open --config webpack.config.js"
+    "start": "webpack serve --open --config webpack.config.js -d eval-source-map"
   },
   "author": "",
   "license": "ISC",

@@ -1,11 +1,6 @@
 @use "../abstracts/" as *;
 @use "sass:color";
 .nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  align-self: normal;
   // padding: rem(60) rem(25);
 
   &__login-container {
@@ -27,10 +22,6 @@
       border: unset;
       padding-block-start: unset;
     }
-  }
-
-  &__logo {
-    width: clamp(5.85rem, 7.013%, 6.31rem);
   }
 
   &__login-btn.btn {

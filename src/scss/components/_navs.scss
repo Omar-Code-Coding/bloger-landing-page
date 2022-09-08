@@ -1,0 +1,13 @@
+@use "../abstracts/" as *;
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-self: normal;
+  gap: rem(25);
+
+  @include min-width-query(breakpoint(desktop)) {
+    flex-direction: row;
+    align-self: unset;
+  }
+}

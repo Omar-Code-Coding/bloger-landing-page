@@ -71,6 +71,7 @@ const config = {
 module.exports = (env, argv) => {
   if (argv.mode === "development") {
     config.devtool = "eval-source-map";
+    config.optimization.minimize = true;
   }
 
   return config;
