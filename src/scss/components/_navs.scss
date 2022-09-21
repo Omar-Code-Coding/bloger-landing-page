@@ -6,7 +6,7 @@
   align-self: normal;
   gap: rem(25);
 
-  @include min-width-query(breakpoint(desktop)) {
+  @include set-media-query(min-width, get-bp(desktop)) {
     flex-direction: row;
     align-self: unset;
   }

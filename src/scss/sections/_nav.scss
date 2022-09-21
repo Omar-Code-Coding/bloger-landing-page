@@ -17,7 +17,7 @@
       )
       solid rem(1);
 
-    @include min-width-query(breakpoint(desktop)) {
+    @include set-media-query(min-width, get-bp(desktop)) {
       flex-direction: row;
       border: unset;
       padding-block-start: unset;
@@ -35,7 +35,7 @@
     padding: rem(10) rem(27);
     @include hover-bg-color;
 
-    @include min-width-query(breakpoint(desktop)) {
+    @include set-media-query(min-width, get-bp(desktop)) {
       background: color-neutral(white);
     }
   }

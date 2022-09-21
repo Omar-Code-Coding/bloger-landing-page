@@ -1,15 +1,15 @@
 {
   "name": "blogr-landing-page-main",
   "version": "1.0.0",
-  "description": "![Design preview for the Blogr landing page coding challenge](./design/desktop-preview.jpg)",
+  "description": "the Blogr landing page coding challenge",
+  "type": "module",
   "private": "true",
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack --mode development",
-    "watch": "webpack --watch",
-    "start": "webpack serve --open --config webpack.config.js -d eval-source-map"
+    "start": "webpack serve --mode development --open --config webpack.config.cjs -d eval-source-map"
   },
-  "author": "",
+  "author": "omarcode-e",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.17.10",

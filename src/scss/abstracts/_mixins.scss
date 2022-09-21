@@ -1,15 +1,8 @@
 @use "functions" as *;
 @use "variables" as *;
 
-@mixin max-width-query($breakpoint) {
-  @media screen and (max-width: $breakpoint) {
-    @content;
-  }
-}
-
-// Desktop sizes
-@mixin min-width-query($breakpoint) {
-  @media screen and (min-width: $breakpoint) {
+@mixin set-media-query($width, $breakpoint) {
+  @media screen and ($width: $breakpoint) {
     @content;
   }
 }

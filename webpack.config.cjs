@@ -4,7 +4,6 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { argv } = require("process");
 
 const config = {
-  mode: "development",
   entry: "./src/js/main.js",
 
   target: "web",
@@ -71,7 +70,10 @@ const config = {
 module.exports = (env, argv) => {
   if (argv.mode === "development") {
     config.devtool = "eval-source-map";
-    config.optimization.minimize = true;
+  }
+
+  if (argv.mode === "production") {
+    config.devtool = "source-map";
   }
 
   return config;

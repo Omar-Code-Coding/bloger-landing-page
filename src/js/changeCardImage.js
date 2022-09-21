@@ -1,23 +1,32 @@
-function loopImgsAndElements(imgNum, imgs) {
-  for (let i = 0; i < imgNum.length; i++) {
-    document.querySelector(`[data-img="${imgNum[i]}"`).src = imgs[i];
-  }
+function getCardImgElement(attributeValue) {
+  return attributeValue.map((attrValue) =>
+    document.querySelector(`[data-img="${attrValue}"]`)
+  );
 }
 
-function setCardImg(imgNum, mobileImgs, desktopImgs) {
+function setCardImg(attributeValue, imgs) {
+  return getCardImgElement(attributeValue).forEach(
+    (el, i) => (el.src = imgs[i])
+  );
+}
+
+function renderCardImg(attributeValue, mobileImgs, desktopImgs) {
   if (window.innerWidth < 1024) {
-    loopImgsAndElements(imgNum, mobileImgs);
+    setCardImg(attributeValue, mobileImgs);
   }
 
   if (window.innerWidth > 1024) {
-    loopImgsAndElements(imgNum, desktopImgs);
+    setCardImg(attributeValue, desktopImgs);
   }
 }
 
-function changeCardImgOnResize(imgNum, mobileImgs, desktopImgs) {
-  return window.addEventListener("resize", () => {
-    setCardImg(imgNum, mobileImgs, desktopImgs);
-  });
+/**
+ * Change "card__img" on page resize
+ * @param  {any} handlerArg Pass arguments to the handler-function
+ * @returns Event listener to handle page resize
+ */
+function setCardImgHandler(...handlerArg) {
+  return window.addEventListener("resize", () => renderCardImg(...handlerArg));
 }
 
-export { setCardImg, changeCardImgOnResize };
+export { renderCardImg, setCardImgHandler };

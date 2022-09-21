@@ -6,7 +6,7 @@
   align-items: center;
   //   display: inline-block;
   position: relative;
-  @include min-width-query(breakpoint(desktop)) {
+  @include set-media-query(min-width, get-bp(desktop)) {
     width: 100%;
     margin: 0 0 0 rem(50);
   }
@@ -19,20 +19,18 @@
 
   &__toggle {
     cursor: pointer;
+    width: 60px;
+    height: 60px;
+
     outline: 0;
     border: 0;
     border-radius: 50%;
     padding: rem(15) rem(10);
-    // transform: rotate(90deg);
     background-color: transparent;
 
     // Hide btn in desktop size
-    @include min-width-query(breakpoint(desktop)) {
+    @include set-media-query(min-width, get-bp(desktop)) {
       display: none;
-    }
-
-    &::after {
-      content: url("/src/images/icon-hamburger.svg");
     }
 
     // Create background shadow effect on click
@@ -61,7 +59,7 @@
     overflow: hidden;
     z-index: 1;
 
-    @include min-width-query(breakpoint(desktop)) {
+    @include set-media-query(min-width, get-bp(desktop)) {
       flex-direction: row;
       justify-content: space-between;
       transform: unset;
@@ -79,4 +77,12 @@
   height: 0;
   overflow: hidden;
   transition: height 350ms ease;
+}
+
+.toggle-close::after {
+  content: url("/src/images/icon-hamburger.svg");
+}
+
+.toggle-open::after {
+  content: url("/src/images/icon-close.svg");
 }

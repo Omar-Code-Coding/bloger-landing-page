@@ -14,7 +14,7 @@
   background-size: 330%, 100%;
   background-repeat: no-repeat;
   background-position: 35% 33%, 0;
-  @include min-width-query(breakpoint(desktop)) {
+  @include set-media-query(min-width, get-bp(desktop)) {
     background-position: 35% 33%, 0;
     background-size: 330%, 100%;
   }
@@ -39,7 +39,7 @@
   }
 }
 
-@include min-width-query(64em) {
+@include set-media-query(min-width, 64em) {
   .header {
     // Choose the biggest value
     padding-inline: Max(rem(150), 11%);

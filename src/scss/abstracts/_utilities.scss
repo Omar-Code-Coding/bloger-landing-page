@@ -16,26 +16,26 @@
   }
 
   &--r-3 {
-    @include min-width-query(breakpoint(desktop)) {
+    @include set-media-query(min-width, get-bp(desktop)) {
       padding-inline-end: 30%;
       padding-inline-start: 0;
     }
   }
 
   &--r-2 {
-    @include min-width-query(breakpoint(desktop)) {
+    @include set-media-query(min-width, get-bp(desktop)) {
       padding-inline-end: 18%;
     }
   }
 
   &--r-1 {
-    @include min-width-query(breakpoint(desktop)) {
+    @include set-media-query(min-width, get-bp(desktop)) {
       padding-inline-end: 16.7%;
     }
   }
 
   &--l {
-    @include min-width-query(breakpoint(desktop)) {
+    @include set-media-query(min-width, get-bp(desktop)) {
       padding-inline-start: 22%;
     }
   }

@@ -11,7 +11,7 @@
     "txtTwo";
   text-align: center;
 
-  @include min-width-query(breakpoint(desktop)) {
+  @include set-media-query(min-width, get-bp(desktop)) {
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas:
       "img txtOne"
@@ -22,13 +22,13 @@
   }
 
   &--1-row {
-    @include min-width-query(breakpoint(desktop)) {
+    @include set-media-query(min-width, get-bp(desktop)) {
       grid-template-areas: "img txtOne";
     }
   }
 
   &--invert-order {
-    @include min-width-query(breakpoint(desktop)) {
+    @include set-media-query(min-width, get-bp(desktop)) {
       grid-template-areas:
         "txtOne img"
         "txtTwo img";
@@ -42,7 +42,7 @@
     background-position: center -230px, 0;
     background-size: 580px auto, auto;
 
-    @include min-width-query(breakpoint(desktop)) {
+    @include set-media-query(min-width, get-bp(desktop)) {
       background-position: left -15rem, 0;
     }
   }
@@ -69,7 +69,7 @@
     font-size: size(lg-3);
     color: color-primary(very-dark-blue);
 
-    @include min-width-query(breakpoint(desktop)) {
+    @include set-media-query(min-width, get-bp(desktop)) {
       font-size: size(lg-2);
     }
 
@@ -87,7 +87,7 @@
     font-weight: 300;
     color: color-neutral(very-dark-grayish-blue);
 
-    @include min-width-query(breakpoint(desktop)) {
+    @include set-media-query(min-width, get-bp(desktop)) {
       font-size: size(sm-3);
     }
 
@@ -97,21 +97,21 @@
   }
 
   &__img-container {
-    @include min-width-query(breakpoint(desktop)) {
+    @include set-media-query(min-width, get-bp(desktop)) {
       // grid-column: 1 / span 1;
       // grid-row: 1 / span 2;
       grid-area: img;
     }
 
     &--pos-left {
-      @include min-width-query(breakpoint(desktop)) {
+      @include set-media-query(min-width, get-bp(desktop)) {
         position: absolute;
         left: -41%;
       }
     }
 
     &--pos-right {
-      @include min-width-query(breakpoint(desktop)) {
+      @include set-media-query(min-width, get-bp(desktop)) {
         position: absolute;
         right: -35.5%;
         top: -41%;
@@ -122,7 +122,7 @@
       position: absolute;
       bottom: 65%;
 
-      @include min-width-query(breakpoint(desktop)) {
+      @include set-media-query(min-width, get-bp(desktop)) {
         position: unset;
       }
     }
@@ -134,7 +134,7 @@
     }
 
     &--wd-vw {
-      @include min-width-query(breakpoint(desktop)) {
+      @include set-media-query(min-width, get-bp(desktop)) {
         width: 60vw;
       }
     }

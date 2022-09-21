@@ -1,4 +1,4 @@
-import wait from "./helperFunctions";
+import wait from "./helperFunctions.js";
 export default class Navbar {
   #toggleBtn = document.querySelector(".navbar__toggle");
   #navbarContent = document.querySelector(".navbar__content");
@@ -6,30 +6,31 @@ export default class Navbar {
   constructor() {
     // Events
     this.#toggleBtn.addEventListener("click", this.#toggleMenu.bind(this));
-    window.addEventListener("resize", this.#initMenu.bind(this));
-    this.#initMenu();
+    window.addEventListener("resize", this.#initNavbar.bind(this));
+    this.#initNavbar();
   }
 
-  #initMenu() {
+  #initNavbar() {
     const windowWidth = window.innerWidth;
-    // Expand accordion for desktop size
+    // Expand navbar for desktop size
     if (windowWidth > 1024) {
       return this.#navbarContent.classList.remove("menu-close");
     }
 
-    // Shrink accordions into a menu for mobile size
+    // Shrink navbar into a menu for mobile size
     if (windowWidth < 1024) {
+      this.#toggleBtnIcon("close");
       return this.#navbarContent.classList.add("menu-close");
     }
   }
 
   #toggleMenu() {
-    // Disable dropdown menu
+    // Disable navbar menu
     if (!this.#navbarContent.classList.contains("menu-close")) {
       return this.#closeMenu();
     }
 
-    // Active dropdown menu
+    // Active navbar menu
     if (this.#navbarContent.classList.contains("menu-close")) {
       return this.#openMenu();
     }
@@ -38,15 +39,31 @@ export default class Navbar {
   /* Active menu */
   #openMenu() {
     // 1- Activate menu
+    this.#toggleBtnIcon("open");
     this.#navbarContent.classList.remove("menu-close");
     this.#expandAnimation();
   }
 
   /* Disable menu */
   #closeMenu() {
+    this.#toggleBtnIcon("close");
     this.#shrinkAnimation();
     // Disable transition after the animation finishes;
     wait(300).then(() => this.#navbarContent.classList.add("menu-close"));
+  }
+
+  #toggleBtnIcon(state) {
+    // Set btn icon to icon-close
+    if (state === "open") {
+      this.#toggleBtn.classList.remove("toggle-close");
+      return this.#toggleBtn.classList.add("toggle-open");
+    }
+
+    // Set btn icon to icon-hamburger
+    if (state === "close") {
+      this.#toggleBtn.classList.remove("toggle-open");
+      return this.#toggleBtn.classList.add("toggle-close");
+    }
   }
 
   #expandAnimation() {

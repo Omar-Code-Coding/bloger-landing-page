@@ -24,7 +24,7 @@ ul {
 
   &-main {
     font-weight: 500;
-    @include min-width-query(breakpoint(desktop)) {
+    @include set-media-query(min-width, get-bp(desktop)) {
       font-size: size(lg-5);
     }
   }
@@ -41,7 +41,7 @@ ul {
     font-weight: 600;
     color: color-neutral(very-dark-grayish-blue);
 
-    @include min-width-query(breakpoint(desktop)) {
+    @include set-media-query(min-width, get-bp(desktop)) {
       font-family: font(ubuntu);
       font-size: size(sm-2);
       color: color-neutral(white);
@@ -50,7 +50,7 @@ ul {
 
   &__sign-btn.btn {
     // font-size: ;
-    @include min-width-query(breakpoint(desktop)) {
+    @include set-media-query(min-width, get-bp(desktop)) {
       color: color-primary(light-red);
     }
   }
@@ -58,7 +58,7 @@ ul {
 
 .content {
   &__heading {
-    @include min-width-query(breakpoint(desktop)) {
+    @include set-media-query(min-width, get-bp(desktop)) {
       font-size: size(lg-4);
     }
     font-weight: 500;

@@ -2,28 +2,23 @@ import "regenerator-runtime/runtime.js";
 import wait from "./helperFunctions.js";
 
 export default class Dropdown {
-  #parentElement;
+  parentElement;
   #dropdown = document.querySelectorAll(".dropdown");
   #dropdownToggle = document.querySelectorAll(".dropdown__toggle");
   #dropdownMenu = document.querySelectorAll(".dropdown__menu");
 
-  constructor() {
-    // Events
-    wait(2).then(() => {
-      this.#parentElement.addEventListener(
-        "click",
-        this.#toggleDropdown.bind(this)
-      );
-    });
-
-    document.addEventListener("click", this.#disableDropdown.bind(this));
-
+  constructor(parentEl) {
+    this.parentElement = document.querySelector(parentEl);
+    this.#addDropdownHandler();
     this.#init();
   }
 
-  setParentElement(el) {
-    this.#parentElement = document.querySelector(el);
-    return this.#parentElement;
+  #addDropdownHandler() {
+    document.addEventListener("click", this.#disableDropdown.bind(this));
+    return this.parentElement.addEventListener(
+      "click",
+      this.#toggleDropdown.bind(this)
+    );
   }
 
   #init() {

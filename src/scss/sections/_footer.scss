@@ -11,7 +11,7 @@
   background-color: color-neutral(very-dark-black-blue);
 }
 
-@include min-width-query(breakpoint(desktop)) {
+@include set-media-query(min-width, get-bp(desktop)) {
   .footer {
     flex-direction: row;
     justify-content: space-evenly;
