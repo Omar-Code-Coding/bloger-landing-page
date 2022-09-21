@@ -26,14 +26,6 @@ html {
     background-color: rgba(0, 0, 0, 0);
   }
 }
-@keyframes expand {
-  from {
-    height: 0;
-  }
-  to {
-    height: 100%;
-  }
-}
 .pad--x-1 {
   padding-inline: 10%;
 }
@@ -538,6 +530,8 @@ ul {
 }
 .navbar__toggle {
   cursor: pointer;
+  width: 60px;
+  height: 60px;
   outline: 0;
   border: 0;
   border-radius: 50%;
@@ -548,9 +542,6 @@ ul {
   .navbar__toggle {
     display: none;
   }
-}
-.navbar__toggle::after {
-  content: url(68867946847c3249542e.svg);
 }
 .navbar__toggle:active {
   animation: btnOnClick 280ms ease-out;
@@ -588,4 +579,12 @@ ul {
   height: 0;
   overflow: hidden;
   transition: height 350ms ease;
+}
+
+.toggle-close::after {
+  content: url(68867946847c3249542e.svg);
+}
+
+.toggle-open::after {
+  content: url(c6580312401807bc9f98.svg);
 }
