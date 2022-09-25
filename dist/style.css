@@ -36,23 +36,23 @@ html {
   padding-inline: 20%;
 }
 @media screen and (min-width: 64em) {
-  .pad--r-3 {
+  .pad--r-lg-1 {
+    padding-inline-end: 16.7%;
+  }
+}
+@media screen and (min-width: 64em) {
+  .pad--r-lg-2 {
+    padding-inline-end: 18%;
+  }
+}
+@media screen and (min-width: 64em) {
+  .pad--r-lg-3 {
     padding-inline-end: 30%;
     padding-inline-start: 0;
   }
 }
 @media screen and (min-width: 64em) {
-  .pad--r-2 {
-    padding-inline-end: 18%;
-  }
-}
-@media screen and (min-width: 64em) {
-  .pad--r-1 {
-    padding-inline-end: 16.7%;
-  }
-}
-@media screen and (min-width: 64em) {
-  .pad--l {
+  .pad--l-lg {
     padding-inline-start: 22%;
   }
 }
@@ -60,6 +60,13 @@ html {
 /* Margin */
 .mg--y {
   margin-block: 30vh 18%;
+}
+.mg--l-1 {
+  margin-inline-start: 0.4375rem;
+}
+
+.border--t {
+  border-block-start: #dedee0 solid 0.0625rem;
 }
 
 html {
@@ -176,15 +183,6 @@ ul {
   margin-inline-start: 0.4375rem;
   padding-inline: 1.125rem;
 }
-.header__learn-btn.btn:hover {
-  background: #ffffff;
-  color: #4b5862;
-}
-.header__start-btn.btn:hover {
-  transform: translateY(-10%);
-  box-shadow: 0 0.0625rem 0.3125rem rgba(0, 0, 0, 0.3);
-}
-
 .header__heading {
   padding-inline: 1.25rem;
   margin-block: 6.25rem 2.5rem;
@@ -198,43 +196,6 @@ ul {
     padding-inline: max(9.375rem, 11%);
   }
 }
-.nav__login-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  align-self: normal;
-  row-gap: 0.4375rem;
-  padding-block-start: 0.9375rem;
-  border-block-start: #dedee0 solid 0.0625rem;
-}
-@media screen and (min-width: 64em) {
-  .nav__login-container {
-    flex-direction: row;
-    border: unset;
-    padding-block-start: unset;
-  }
-}
-.nav__login-btn.btn {
-  border: 0;
-}
-.nav__login-btn.btn:hover {
-  background: #ffffff;
-  color: #4b5862;
-}
-.nav__sign-btn.btn {
-  margin-inline-start: 0.4375rem;
-  padding: 0.625rem 1.6875rem;
-}
-.nav__sign-btn.btn:hover {
-  transform: translateY(-10%);
-  box-shadow: 0 0.0625rem 0.3125rem rgba(0, 0, 0, 0.3);
-}
-@media screen and (min-width: 64em) {
-  .nav__sign-btn.btn {
-    background: #ffffff;
-  }
-}
-
 .content {
   display: flex;
   flex-direction: column;
@@ -276,20 +237,74 @@ ul {
   border-radius: 1.25rem;
   padding: 0.625rem 0.9375rem;
   color: #ffffff;
-  background: linear-gradient(135deg, #ff8f70, #ff3d54);
   font-family: "Ubuntu", sans-serif;
   font-weight: 700;
   font-size: 0.875rem;
   transition: background-color 200ms ease, transform 200ms ease;
-}
-.btn--transparent {
-  border: 0.0625rem solid #ffffff;
-  color: #ffffff;
   background: transparent;
+}
+.btn:hover {
+  color: #4b5862;
+  background-color: #ffffff;
+}
+.btn--md {
+  padding: 0.625rem 1.6875rem;
+}
+.btn--outline {
+  border: 0.0625rem solid #ffffff;
 }
 .btn--white {
   color: #ff525d;
   background: #ffffff;
+}
+.btn--white:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.2);
+}
+.btn--login {
+  color: #4b5862;
+}
+@media screen and (min-width: 64em) {
+  .btn--login {
+    color: #ffffff;
+  }
+}
+.btn--sign {
+  background: linear-gradient(135deg, #ff8f70, #ff3d54);
+}
+.btn--sign:hover {
+  transform: translateY(-10%);
+  box-shadow: 0 0.0625rem 0.3125rem rgba(0, 0, 0, 0.4);
+}
+@media screen and (min-width: 64em) {
+  .btn--sign {
+    color: #ff525d;
+    background: #ffffff;
+  }
+  .btn--sign:hover {
+    transform: unset;
+    box-shadow: unset;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.4);
+  }
+}
+
+.btn-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 0.4375rem;
+  padding-block-start: 0.9375rem;
+}
+@media screen and (min-width: 64em) {
+  .btn-group {
+    flex-direction: row;
+    border: unset;
+    padding-block-start: unset;
+  }
+}
+.btn-group--row {
+  flex-direction: row;
 }
 
 .card {
@@ -549,7 +564,6 @@ ul {
 .navbar__content {
   display: flex;
   flex-direction: column;
-  align-items: center;
   row-gap: 1.5625rem;
   width: 80vw;
   border-radius: 0.3125rem;
@@ -564,6 +578,7 @@ ul {
 @media screen and (min-width: 64em) {
   .navbar__content {
     flex-direction: row;
+    align-items: center;
     justify-content: space-between;
     transform: unset;
     position: unset;
