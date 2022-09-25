@@ -7,14 +7,14 @@
   }
 }
 
-@mixin hover-bg-color($bg-color: null) {
-  &:hover {
-    @if $bg-color == transparent {
-      background: color-neutral(white);
-      color: color-neutral(very-dark-grayish-blue);
-    } @else {
-      transform: translateY(-10%);
-      box-shadow: 0 rem(1) rem(5) rgba($color: black, $alpha: 0.3);
-    }
-  }
-}
+// @mixin hover-bg-color($bg-color: null) {
+//   &:hover {
+//     @if $bg-color == transparent {
+//       background: color-neutral(white);
+//       color: color-neutral(very-dark-grayish-blue);
+//     } @else {
+//       transform: translateY(-10%);
+//       box-shadow: 0 rem(1) rem(5) rgba($color: black, $alpha: 0.3);
+//     }
+//   }
+// }

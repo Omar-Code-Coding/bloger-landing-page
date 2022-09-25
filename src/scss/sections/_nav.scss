@@ -2,41 +2,4 @@
 @use "sass:color";
 .nav {
   // padding: rem(60) rem(25);
-
-  &__login-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-self: normal;
-    row-gap: rem(7);
-    padding-block-start: rem(15);
-
-    border-block-start: scale-color(
-        $color: color-neutral(grayish-blue),
-        $lightness: 40%
-      )
-      solid rem(1);
-
-    @include set-media-query(min-width, get-bp(desktop)) {
-      flex-direction: row;
-      border: unset;
-      padding-block-start: unset;
-    }
-  }
-
-  &__login-btn.btn {
-    // Change .button default color for mobile size
-    border: 0;
-    @include hover-bg-color(transparent);
-  }
-
-  &__sign-btn.btn {
-    margin-inline-start: rem(7);
-    padding: rem(10) rem(27);
-    @include hover-bg-color;
-
-    @include set-media-query(min-width, get-bp(desktop)) {
-      background: color-neutral(white);
-    }
-  }
 }

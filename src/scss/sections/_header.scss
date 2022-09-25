@@ -22,11 +22,11 @@
   &__learn-btn.btn {
     margin-inline-start: rem(7);
     padding-inline: rem(18);
-    @include hover-bg-color(transparent);
+    // @include hover-bg-color(transparent);
   }
 
   &__start-btn.btn {
-    @include hover-bg-color;
+    // @include hover-bg-color;
   }
 }
 

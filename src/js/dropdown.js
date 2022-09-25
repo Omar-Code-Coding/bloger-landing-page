@@ -33,12 +33,12 @@ export default class Dropdown {
     e.preventDefault();
     e.stopPropagation();
 
-    // Disable Accordion
+    // Disable dropdown
     if (!activeDropdown.classList.contains("collapse")) {
       return this.#disableDropdown(e);
     }
 
-    // Activate Accordion
+    // Activate dropdown
     if (activeDropdown.classList.contains("collapse")) {
       return this.#activeDropdown(e);
     }
@@ -107,7 +107,7 @@ export default class Dropdown {
       })
       .then(() => {
         activeDropdown.classList.remove("collapsing");
-        // Disable Accordion
+        // Disable dropdown
         activeDropdown.style = "";
       });
   }

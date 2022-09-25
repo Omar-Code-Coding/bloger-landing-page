@@ -15,26 +15,26 @@
     padding-inline: 20%;
   }
 
-  &--r-3 {
+  &--r-lg-1 {
+    @include set-media-query(min-width, get-bp(desktop)) {
+      padding-inline-end: 16.7%;
+    }
+  }
+
+  &--r-lg-2 {
+    @include set-media-query(min-width, get-bp(desktop)) {
+      padding-inline-end: 18%;
+    }
+  }
+
+  &--r-lg-3 {
     @include set-media-query(min-width, get-bp(desktop)) {
       padding-inline-end: 30%;
       padding-inline-start: 0;
     }
   }
 
-  &--r-2 {
-    @include set-media-query(min-width, get-bp(desktop)) {
-      padding-inline-end: 18%;
-    }
-  }
-
-  &--r-1 {
-    @include set-media-query(min-width, get-bp(desktop)) {
-      padding-inline-end: 16.7%;
-    }
-  }
-
-  &--l {
+  &--l-lg {
     @include set-media-query(min-width, get-bp(desktop)) {
       padding-inline-start: 22%;
     }
@@ -43,6 +43,22 @@
 
 /* Margin */ /////////////////////////////////////////////////////////////////
 //////////////
-.mg--y {
-  margin-block: 30vh 18%;
+.mg {
+  &--y {
+    margin-block: 30vh 18%;
+  }
+
+  &--l-1 {
+    margin-inline-start: rem(7);
+  }
+}
+
+.border {
+  &--t {
+    border-block-start: scale-color(
+        $color: color-neutral(grayish-blue),
+        $lightness: 40%
+      )
+      solid rem(1);
+  }
 }

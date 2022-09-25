@@ -42,7 +42,6 @@
   &__content {
     display: flex;
     flex-direction: column;
-    align-items: center;
     row-gap: rem(25);
 
     width: 80vw;
@@ -61,6 +60,7 @@
 
     @include set-media-query(min-width, get-bp(desktop)) {
       flex-direction: row;
+      align-items: center;
       justify-content: space-between;
       transform: unset;
       position: unset;
