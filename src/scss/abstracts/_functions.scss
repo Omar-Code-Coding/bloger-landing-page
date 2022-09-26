@@ -9,7 +9,7 @@
   @return map-get($map: $font-size, $key: $s);
 }
 
-@function font($family) {
+@function fm($family) {
   @return map-get($map: $font-family, $key: $family);
 }
 

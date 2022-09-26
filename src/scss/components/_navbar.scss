@@ -6,7 +6,7 @@
   align-items: center;
   //   display: inline-block;
   position: relative;
-  @include set-media-query(min-width, get-bp(desktop)) {
+  @include set-mq(min-width, get-bp(desktop)) {
     width: 100%;
     margin: 0 0 0 rem(50);
   }
@@ -29,7 +29,7 @@
     background-color: transparent;
 
     // Hide btn in desktop size
-    @include set-media-query(min-width, get-bp(desktop)) {
+    @include set-mq(min-width, get-bp(desktop)) {
       display: none;
     }
 
@@ -58,7 +58,7 @@
     overflow: hidden;
     z-index: 1;
 
-    @include set-media-query(min-width, get-bp(desktop)) {
+    @include set-mq(min-width, get-bp(desktop)) {
       flex-direction: row;
       align-items: center;
       justify-content: space-between;

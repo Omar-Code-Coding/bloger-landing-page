@@ -7,7 +7,7 @@
   padding-block: 5% 20%;
   &__heading {
     padding-block: 20% 10%;
-    @include set-media-query(min-width, get-bp(desktop)) {
+    @include set-mq(min-width, get-bp(desktop)) {
       padding-block: 5%;
     }
   }

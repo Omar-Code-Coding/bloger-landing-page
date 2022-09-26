@@ -6,14 +6,14 @@
   color: color-neutral(very-dark-grayish-blue);
   text-align: center;
 
-  @include set-media-query(min-width, get-bp(desktop)) {
+  @include set-mq(min-width, get-bp(desktop)) {
     font-size: rem(13);
     text-align: left;
   }
 
   &:hover {
     color: color-neutral(very-dark-black-blue);
-    @include set-media-query(min-width, get-bp(desktop)) {
+    @include set-mq(min-width, get-bp(desktop)) {
       font-weight: 700;
     }
   }

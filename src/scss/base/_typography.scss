@@ -5,7 +5,7 @@ html {
 }
 
 body {
-  font-family: font(overpass), sans-serif;
+  font-family: fm(overpass), sans-serif;
 }
 
 a {
@@ -24,7 +24,7 @@ ul {
 
   &-main {
     font-weight: 500;
-    @include set-media-query(min-width, get-bp(desktop)) {
+    @include set-mq(min-width, get-bp(desktop)) {
       font-size: size(lg-5);
     }
   }
@@ -36,13 +36,13 @@ ul {
 
 .nav {
   &__login-btn.btn {
-    font-family: font(overpass);
+    font-family: fm(overpass);
     font-size: size(md-1);
     font-weight: 600;
     color: color-neutral(very-dark-grayish-blue);
 
-    @include set-media-query(min-width, get-bp(desktop)) {
-      font-family: font(ubuntu);
+    @include set-mq(min-width, get-bp(desktop)) {
+      font-family: fm(ubuntu);
       font-size: size(sm-2);
       color: color-neutral(white);
     }
@@ -50,7 +50,7 @@ ul {
 
   &__sign-btn.btn {
     // font-size: ;
-    @include set-media-query(min-width, get-bp(desktop)) {
+    @include set-mq(min-width, get-bp(desktop)) {
       color: color-primary(light-red);
     }
   }
@@ -58,7 +58,7 @@ ul {
 
 .content {
   &__heading {
-    @include set-media-query(min-width, get-bp(desktop)) {
+    @include set-mq(min-width, get-bp(desktop)) {
       font-size: size(lg-4);
     }
     font-weight: 500;

@@ -16,26 +16,26 @@
   }
 
   &--r-lg-1 {
-    @include set-media-query(min-width, get-bp(desktop)) {
+    @include set-mq(min-width, get-bp(desktop)) {
       padding-inline-end: 16.7%;
     }
   }
 
   &--r-lg-2 {
-    @include set-media-query(min-width, get-bp(desktop)) {
+    @include set-mq(min-width, get-bp(desktop)) {
       padding-inline-end: 18%;
     }
   }
 
   &--r-lg-3 {
-    @include set-media-query(min-width, get-bp(desktop)) {
+    @include set-mq(min-width, get-bp(desktop)) {
       padding-inline-end: 30%;
       padding-inline-start: 0;
     }
   }
 
   &--l-lg {
-    @include set-media-query(min-width, get-bp(desktop)) {
+    @include set-mq(min-width, get-bp(desktop)) {
       padding-inline-start: 22%;
     }
   }
@@ -53,6 +53,9 @@
   }
 }
 
+/* Border */ ///////////////////////////////////////////////////////////////
+//////////////
+
 .border {
   &--t {
     border-block-start: scale-color(
@@ -60,5 +63,47 @@
         $lightness: 40%
       )
       solid rem(1);
+  }
+}
+
+.position {
+  &--abs {
+    position: absolute;
+  }
+
+  &--static-lg {
+    @include set-mq(min-width, get-bp(desktop)) {
+      position: static;
+    }
+  }
+}
+
+.left {
+  &--lg-15 {
+    @include set-mq(min-width, get-bp(desktop)) {
+      left: 15.5%;
+    }
+  }
+}
+
+.right {
+  &--lg-5 {
+    @include set-mq(min-width, get-bp(desktop)) {
+      right: 5.5%;
+    }
+  }
+}
+
+.top {
+  &--lg-n41 {
+    @include set-mq(min-width, get-bp(desktop)) {
+      top: -41%;
+    }
+  }
+}
+
+.bottom {
+  &--65 {
+    bottom: 65%;
   }
 }

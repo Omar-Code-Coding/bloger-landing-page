@@ -1,7 +1,7 @@
 @use "functions" as *;
 @use "variables" as *;
 
-@mixin set-media-query($width, $breakpoint) {
+@mixin set-mq($width, $breakpoint) {
   @media screen and ($width: $breakpoint) {
     @content;
   }
