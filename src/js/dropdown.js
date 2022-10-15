@@ -1,6 +1,5 @@
 import "regenerator-runtime/runtime.js";
 import wait from "./helperFunctions.js";
-
 export default class Dropdown {
   parentElement;
   #dropdown = document.querySelectorAll(".dropdown");
@@ -9,16 +8,8 @@ export default class Dropdown {
 
   constructor(parentEl) {
     this.parentElement = document.querySelector(parentEl);
-    this.#addDropdownHandler();
+    document.addEventListener("click", this.#toggleDropdown.bind(this));
     this.#init();
-  }
-
-  #addDropdownHandler() {
-    document.addEventListener("click", this.#disableDropdown.bind(this));
-    return this.parentElement.addEventListener(
-      "click",
-      this.#toggleDropdown.bind(this)
-    );
   }
 
   #init() {
@@ -27,88 +18,53 @@ export default class Dropdown {
   }
 
   #toggleDropdown(e) {
-    // Doesn't Activate, Disable accoridon if not clicked directly
-    if (!e.target.classList.contains("dropdown__toggle")) return;
-    const activeDropdown = e.target.nextElementSibling;
+    const isDropdownBtn = e.target.matches("[data-dropdown-btn]");
+    if (!isDropdownBtn && e.target.closest("[data-dropdown]") != null) return;
+
+    let currentDropdown = e.target.nextElementSibling;
+    let currentDropdownBtn = e.target;
+
+    if (isDropdownBtn) {
+      this.#openDropdown(e, currentDropdown, currentDropdownBtn);
+    }
+
+    this.#closeDropdownS(e, currentDropdown, currentDropdownBtn);
+  }
+
+  #openDropdown(e, dropdown, dropdownBtn) {
+    dropdown.classList.toggle("collapse");
+    dropdownBtn.classList.toggle("close");
     e.preventDefault();
-    e.stopPropagation();
-
-    // Disable dropdown
-    if (!activeDropdown.classList.contains("collapse")) {
-      return this.#disableDropdown(e);
-    }
-
-    // Activate dropdown
-    if (activeDropdown.classList.contains("collapse")) {
-      return this.#activeDropdown(e);
-    }
+    this.#animationExpand(dropdown);
   }
 
-  #activeDropdown(e) {
-    const activeToggle = e.target;
-    const activeDropdown = e.target.nextElementSibling;
-    // 1- Active accordion
-    activeDropdown.classList.remove("collapse");
-    // --1- Rotate Arrow next to accordion
-    activeToggle.classList.remove("close");
-    this.#addExpandAnimation(e);
-  }
-
-  #disableDropdown(e) {
-    this.#addShrinkAnimation(e);
-    wait(250).then(() => this.#disableAllDropdown());
-  }
-
-  #disableAllDropdown() {
+  #closeDropdownS(e, dropdown, dropdownBtn) {
     this.#dropdownMenu.forEach((menu) => {
+      if (menu === dropdown) return;
       menu.classList.add("collapse");
     });
-    this.#dropdownToggle.forEach((toggle) => toggle.classList.add("close"));
+    this.#dropdownToggle.forEach((toggleBtn) => {
+      if (toggleBtn === dropdownBtn) return;
+      toggleBtn.classList.add("close");
+    });
   }
 
-  #addExpandAnimation(e) {
-    const activeToggle = e.target;
-    const activeDropdown = e.target.nextElementSibling;
-
-    // 2- Set transition
-    let dropdownHeight = activeDropdown.clientHeight;
-    activeDropdown.classList.add("collapsing");
+  #animationExpand(dropdown) {
+    // 2-Set transition
+    let dropdownHeight = dropdown.clientHeight;
+    dropdown.classList.add("collapsing");
+    const utilClass = document.querySelector(".collapsing");
     // --1- Set active accordion's height after x amount of time so that Transition start
     wait(1)
       .then(() => {
-        activeDropdown.style.height = `${dropdownHeight}px`;
-        activeDropdown.style.display = "";
+        dropdown.style.height = `${dropdownHeight}px`;
+        dropdown.style.display = "";
         // Set transition
         return wait(250);
       })
       .then(() => {
-        activeDropdown.classList.remove("collapsing");
-        activeDropdown.style = "";
-      });
-  }
-
-  #addShrinkAnimation() {
-    // Get dropdown menu that is active
-    const activeDropdown = Array.from(this.#dropdownMenu).filter(
-      (menu) => !menu.classList.contains("collapse")
-    )[0];
-
-    if (!activeDropdown) return;
-    let dropdownHeight = activeDropdown.clientHeight;
-    // Set transition
-    activeDropdown.classList.add("collapsing");
-    const utilClass = document.querySelector(".collapsing");
-    utilClass.style.height = `${dropdownHeight}px`;
-
-    wait(1)
-      .then(() => {
-        activeDropdown.style.height = "0px";
-        return wait(250);
-      })
-      .then(() => {
-        activeDropdown.classList.remove("collapsing");
-        // Disable dropdown
-        activeDropdown.style = "";
+        dropdown.classList.remove("collapsing");
+        dropdown.style = "";
       });
   }
 }

@@ -6,20 +6,15 @@ import editorDesktopImg from "../images/illustration-editor-desktop.svg";
 import laptopDesktopImg from "../images/illustration-laptop-desktop.svg";
 import Navbar from "./navbar.js";
 import Dropdown from "./dropdown.js";
-import { setCardImgHandler, renderCardImg } from "./changeCardImage.js";
+import { renderCardImg } from "./changeCardImage.js";
 
 const navbar = new Navbar();
 const navDropdown = new Dropdown(".nav");
-
 // Set "card__img" on init
-renderCardImg(
-  ["img-1", "img-3"],
-  [editorMobileImg, laptopMobileImg],
-  [editorDesktopImg, laptopDesktopImg]
-);
+renderCardImg(1200, ["img-1", "img-3"], [editorDesktopImg, laptopDesktopImg]);
+renderCardImg(0, ["img-1", "img-3"], [editorMobileImg, laptopMobileImg]);
 
-setCardImgHandler(
-  ["img-1", "img-3"],
-  [editorMobileImg, laptopMobileImg],
-  [editorDesktopImg, laptopDesktopImg]
-);
+window.addEventListener("resize", () => {
+  renderCardImg(0, ["img-1", "img-3"], [editorMobileImg, laptopMobileImg]);
+  renderCardImg(1200, ["img-1", "img-3"], [editorDesktopImg, laptopDesktopImg]);
+});

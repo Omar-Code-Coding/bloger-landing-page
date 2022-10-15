@@ -15,6 +15,14 @@ html {
   box-sizing: border-box;
 }
 
+.pr-0 {
+  padding-inline-end: 0;
+}
+
+.pr-1 {
+  padding-inline-end: 1;
+}
+
 @keyframes btnOnClick {
   0% {
     background-color: rgba(0, 0, 0, 0);
@@ -35,6 +43,12 @@ html {
 .pad--x-3 {
   padding-inline: 20%;
 }
+.pad--y-1 {
+  padding-block: 13.125rem 5.3125rem;
+}
+.pad--r-1 {
+  padding-inline-end: 5.3125rem;
+}
 @media screen and (min-width: 64em) {
   .pad--r-lg-1 {
     padding-inline-end: 16.7%;
@@ -47,9 +61,12 @@ html {
 }
 @media screen and (min-width: 64em) {
   .pad--r-lg-3 {
-    padding-inline-end: 30%;
+    padding-inline-end: 40%;
     padding-inline-start: 0;
   }
+}
+.pad--l-1 {
+  padding-inline-start: 13.125rem;
 }
 @media screen and (min-width: 64em) {
   .pad--l-lg {

@@ -1,8 +1,8 @@
-@use "sass:color";
 @use "../abstracts" as *;
 
 .dropdown {
   &__toggle {
+    position: relative;
     display: flex;
     justify-content: center;
     font-weight: 600;
@@ -11,7 +11,7 @@
     // Add space between "accordion__link" and accordion Arrow
     gap: 0 rem(5);
 
-    @include set-mq(min-width, get-bp(desktop)) {
+    @include set-mq(min-width, get-bp(lg)) {
       color: color-neutral(white);
     }
 
@@ -23,26 +23,31 @@
       width: rem(10);
       transform: rotate(180deg) translateY(-86%);
       transition: 300ms ease;
-      @include set-mq(min-width, get-bp(desktop)) {
+      @include set-mq(min-width, get-bp(lg)) {
         content: url(/src/images/icon-arrow-light.svg);
       }
     }
   }
 
   &__menu {
-    padding: rem(10) rem(25);
-    background-color: lighten($color: color-neutral(grayish-blue), $amount: 15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: rem(25) rem(20);
+    row-gap: rem(15);
+    opacity: 1;
+    transition: opacity 250ms ease-in-out;
+    background-color: get-bg-color(dropdown-menu);
 
-    @include set-mq(min-width, get-bp(desktop)) {
+    @include set-mq(min-width, get-bp(lg)) {
+      align-items: flex-start;
+      row-gap: rem(10);
       position: absolute;
       width: 7.5%;
       border-radius: rem(5);
       box-shadow: rem(5) rem(5) rem(5) rgba($color: #000000, $alpha: 0.3);
+      background-color: get-bg-color(dropdown-menu-lg);
     }
-  }
-
-  &__item {
-    margin: rem(12) 0;
   }
 }
 
@@ -54,7 +59,7 @@
     transform: rotate(360deg);
   }
 
-  @include set-mq(min-width, get-bp(desktop)) {
+  @include set-mq(min-width, get-bp(lg)) {
     color: color-neutral(grayish-white);
     &:hover {
       color: color-neutral(white);

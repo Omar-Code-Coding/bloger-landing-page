@@ -10,23 +10,10 @@ function setCardImg(attributeValue, imgs) {
   );
 }
 
-function renderCardImg(attributeValue, mobileImgs, desktopImgs) {
-  if (window.innerWidth < 1024) {
-    setCardImg(attributeValue, mobileImgs);
-  }
-
-  if (window.innerWidth > 1024) {
-    setCardImg(attributeValue, desktopImgs);
+function renderCardImg(inputWidth, attributeValue, imgs) {
+  // min-width
+  if (window.innerWidth > inputWidth) {
+    return setCardImg(attributeValue, imgs);
   }
 }
-
-/**
- * Change "card__img" on page resize
- * @param  {any} handlerArg Pass arguments to the handler-function
- * @returns Event listener to handle page resize
- */
-function setCardImgHandler(...handlerArg) {
-  return window.addEventListener("resize", () => renderCardImg(...handlerArg));
-}
-
-export { renderCardImg, setCardImgHandler };
+export { renderCardImg };

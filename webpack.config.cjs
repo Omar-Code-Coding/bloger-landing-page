@@ -11,6 +11,11 @@ const config = {
     static: {
       directory: path.join(__dirname, "dist"),
     },
+    open: {
+      app: {
+        name: "chrome",
+      },
+    },
     port: 3000,
     watchFiles: "./src/scss/**/*.scss",
   },
