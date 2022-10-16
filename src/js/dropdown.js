@@ -5,6 +5,7 @@ export default class Dropdown {
   #dropdown = document.querySelectorAll(".dropdown");
   #dropdownToggle = document.querySelectorAll(".dropdown__toggle");
   #dropdownMenu = document.querySelectorAll(".dropdown__menu");
+  #dropdownItems = document.querySelectorAll(".dropdown__item");
 
   constructor(parentEl) {
     this.parentElement = document.querySelector(parentEl);
@@ -18,24 +19,38 @@ export default class Dropdown {
   }
 
   #toggleDropdown(e) {
-    const isDropdownBtn = e.target.matches("[data-dropdown-btn]");
-    if (!isDropdownBtn && e.target.closest("[data-dropdown]") != null) return;
+    try {
+      const isDropdownBtn = e.target.matches("[data-dropdown-btn]");
+      if (!isDropdownBtn && e.target.closest("[data-dropdown]") != null) return;
 
-    let currentDropdown = e.target.nextElementSibling;
-    let currentDropdownBtn = e.target;
+      const currentDropdown = e.target.nextElementSibling;
+      const currentDropdownBtn = e.target;
+      const currentDropdownItem = currentDropdown.firstElementChild;
+      if (!currentDropdown && currentDropdownBtn) {
+        throw new Error(
+          "There is something wrong with dropdown, please try again later"
+        );
+      }
 
-    if (isDropdownBtn) {
-      this.#openDropdown(e, currentDropdown, currentDropdownBtn);
+      if (isDropdownBtn) {
+        this.#openDropdown(
+          e,
+          currentDropdown,
+          currentDropdownBtn,
+          currentDropdownItem
+        );
+      }
+      this.#closeDropdownS(e, currentDropdown, currentDropdownBtn);
+    } catch (error) {
+      throw error.message;
     }
-
-    this.#closeDropdownS(e, currentDropdown, currentDropdownBtn);
   }
 
-  #openDropdown(e, dropdown, dropdownBtn) {
+  #openDropdown(e, dropdown, dropdownBtn, dropdownItem) {
     dropdown.classList.toggle("collapse");
     dropdownBtn.classList.toggle("close");
     e.preventDefault();
-    this.#animationExpand(dropdown);
+    this.#animationExpand(dropdown, dropdownItem);
   }
 
   #closeDropdownS(e, dropdown, dropdownBtn) {
@@ -49,11 +64,25 @@ export default class Dropdown {
     });
   }
 
-  #animationExpand(dropdown) {
+  #animationExpand(dropdown, dropdownItem) {
     // 2-Set transition
-    let dropdownHeight = dropdown.clientHeight;
+    let dropdownRowGap = Number(
+      window
+        .getComputedStyle(dropdown)
+        .getPropertyValue("row-gap")
+        .replace("px", "")
+        .trimEnd()
+    );
+    let dropdownItemHeight = Number(
+      window
+        .getComputedStyle(dropdownItem)
+        .getPropertyValue("height")
+        .replace("px", "")
+        .trimEnd()
+    );
+    let dropdownHeight =
+      dropdown.clientHeight - (dropdownItemHeight + dropdownRowGap);
     dropdown.classList.add("collapsing");
-    const utilClass = document.querySelector(".collapsing");
     // --1- Set active accordion's height after x amount of time so that Transition start
     wait(1)
       .then(() => {
