@@ -26,7 +26,7 @@ const config = {
     }),
 
     new MiniCssExtractPlugin({
-      filename: "style.css",
+      filename: "styles.css",
     }),
   ],
 

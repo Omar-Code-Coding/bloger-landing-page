@@ -11,7 +11,7 @@
     "txtTwo";
   text-align: center;
 
-  @include set-mq(min-width, get-bp(desktop)) {
+  @include set-mq(min-width, get-bp(xl)) {
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas:
       "img txtOne"
@@ -22,13 +22,13 @@
   }
 
   &--1-row {
-    @include set-mq(min-width, get-bp(desktop)) {
+    @include set-mq(min-width, get-bp(xl)) {
       grid-template-areas: "img txtOne";
     }
   }
 
   &--invert-order {
-    @include set-mq(min-width, get-bp(desktop)) {
+    @include set-mq(min-width, get-bp(xl)) {
       grid-template-areas:
         "txtOne img"
         "txtTwo img";
@@ -38,11 +38,11 @@
   &--bg-gradient {
     padding-block: rem(210) rem(85);
     background: url(/src/images/bg-pattern-circles.svg) no-repeat,
-      $card-gradient;
+      get-bg-gradient(card);
     background-position: center -230px, 0;
     background-size: 580px auto, auto;
 
-    @include set-mq(min-width, get-bp(desktop)) {
+    @include set-mq(min-width, get-bp(xl)) {
       background-position: left -15rem, 0;
     }
   }
@@ -69,7 +69,7 @@
     font-size: size(lg-3);
     color: color-primary(very-dark-blue);
 
-    @include set-mq(min-width, get-bp(desktop)) {
+    @include set-mq(min-width, get-bp(xl)) {
       font-size: size(lg-2);
     }
 
@@ -87,7 +87,7 @@
     font-weight: 300;
     color: color-neutral(very-dark-grayish-blue);
 
-    @include set-mq(min-width, get-bp(desktop)) {
+    @include set-mq(min-width, get-bp(xl)) {
       font-size: size(sm-3);
     }
 
@@ -97,7 +97,7 @@
   }
 
   &__img-container {
-    @include set-mq(min-width, get-bp(desktop)) {
+    @include set-mq(min-width, get-bp(xl)) {
       // grid-column: 1 / span 1;
       // grid-row: 1 / span 2;
       grid-area: img;
@@ -110,7 +110,7 @@
     }
 
     &--wd-vw {
-      @include set-mq(min-width, get-bp(desktop)) {
+      @include set-mq(min-width, get-bp(xl)) {
         width: 60vw;
       }
     }

@@ -1,6 +1,17 @@
+@use "sass:math";
+@use "sass:color";
+
+$rem-fn-arg: 16;
+$base-font-size: math.div(16, 16) * 1rem;
+
+// prettier-ignore
 $breakpoints: (
-  mobile: 48em,
-  desktop: 64em,
+  xs: 0, // < 576px
+  sm: 36em, // >= 576px
+  md: 48em, // >= 768px
+  lg: 63em, // >= 1024px
+  xl: 75em, // >= 1200px
+  xxl: 90em // >= 1440px
 );
 
 $font-family: (
@@ -43,20 +54,60 @@ $gradient: (
   gradient-4: #3f4164
 );
 
-$header-gradient: linear-gradient(
-  135deg,
-  map-get($gradient, gradient-1),
-  map-get($gradient, gradient-2) 100%
+$bg-color: (
+  dropdown-menu:
+    color.adjust(map-get($colors-neutral, grayish-white), $lightness: 5%),
+  dropdown-menu-lg: map-get($colors-neutral, white),
 );
 
-$card-gradient: linear-gradient(
-  135deg,
-  map-get($gradient, gradient-3) 33%,
-  map-get($gradient, gradient-4) 100%
+$bg-gradient: (
+  header: linear-gradient(135deg, #ff8f70, #ff3d54 100%),
+  card: linear-gradient(135deg, #2c2d3f 33%, #3f4164 100%),
+  btn: linear-gradient(135deg, #ff8f70, #ff3d54),
 );
 
-$btn-gradient: linear-gradient(
-  135deg,
-  map-get($gradient, gradient-1),
-  map-get($gradient, gradient-2)
-);
+// $header-gradient: linear-gradient(
+//   135deg,
+//   map-get($gradient, gradient-1),
+//   map-get($gradient, gradient-2) 100%
+// );
+
+// $card-gradient: linear-gradient(
+//   135deg,
+//   map-get($gradient, gradient-3) 33%,
+//   map-get($gradient, gradient-4) 100%
+// );
+
+// $btn-gradient: linear-gradient(
+//   135deg,
+//   map-get($gradient, gradient-1),
+//   map-get($gradient, gradient-2)
+// );
+
+// $utilities: (
+//   "padding-inline-start": (
+//     "prefix": "pl",
+//     "values": (
+//       "0": 0,
+//       "1": 2,
+//     ),
+//   ),
+//   "padding-inline-end": (
+//     "prefix": "pr",
+//     "values": (
+//       "0": 0,
+//       "1": 1,
+//     ),
+//   ),
+// );
+
+// @each $prop, $map in $utilities {
+//   $prefix: map-get($map, "prefix");
+//   $values: map-get($map, "values");
+
+//   @each $k, $v in $values {
+//     .#{$prefix}-#{$k} {
+//       #{$prop}: $v;
+//     }
+//   }
+// }

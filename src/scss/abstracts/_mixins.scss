@@ -2,7 +2,13 @@
 @use "variables" as *;
 
 @mixin set-mq($width, $breakpoint) {
-  @media screen and ($width: $breakpoint) {
+  @media screen and (#{$width}: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin set-mq-range($min-width, $max-width) {
+  @media screen and (min-width: $min-width) and (max-width: $max-width) {
     @content;
   }
 }

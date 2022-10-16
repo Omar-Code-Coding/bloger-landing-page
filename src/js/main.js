@@ -14,7 +14,11 @@ const navDropdown = new Dropdown(".nav");
 renderCardImg(1200, ["img-1", "img-3"], [editorDesktopImg, laptopDesktopImg]);
 renderCardImg(0, ["img-1", "img-3"], [editorMobileImg, laptopMobileImg]);
 
-window.addEventListener("resize", () => {
-  renderCardImg(0, ["img-1", "img-3"], [editorMobileImg, laptopMobileImg]);
-  renderCardImg(1200, ["img-1", "img-3"], [editorDesktopImg, laptopDesktopImg]);
-});
+// prettier-ignore
+["load", "resize"].forEach((event) =>
+  window.addEventListener(event, () => {
+    renderCardImg(0, ["img-1", "img-3"], [editorMobileImg, laptopMobileImg]);
+    renderCardImg(1200,["img-1", "img-3"],[editorDesktopImg, laptopDesktopImg]
+    );
+  })
+);

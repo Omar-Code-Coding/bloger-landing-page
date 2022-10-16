@@ -1,7 +1,7 @@
 @use "../abstracts/" as *;
 
 html {
-  font-size: size(md-1);
+  font-size: $base-font-size;
 }
 
 body {
@@ -24,7 +24,7 @@ ul {
 
   &-main {
     font-weight: 500;
-    @include set-mq(min-width, get-bp(desktop)) {
+    @include set-mq(min-width, get-bp(lg)) {
       font-size: size(lg-5);
     }
   }
@@ -34,31 +34,31 @@ ul {
   }
 }
 
-.nav {
-  &__login-btn.btn {
-    font-family: fm(overpass);
-    font-size: size(md-1);
-    font-weight: 600;
-    color: color-neutral(very-dark-grayish-blue);
+// .nav {
+//   &__login-btn.btn {
+//     font-family: fm(overpass);
+//     font-size: size(md-1);
+//     font-weight: 600;
+//     color: color-neutral(very-dark-grayish-blue);
 
-    @include set-mq(min-width, get-bp(desktop)) {
-      font-family: fm(ubuntu);
-      font-size: size(sm-2);
-      color: color-neutral(white);
-    }
-  }
+//     @include set-mq(min-width, get-bp(lg)) {
+//       font-family: fm(ubuntu);
+//       font-size: size(sm-2);
+//       color: color-neutral(white);
+//     }
+//   }
 
-  &__sign-btn.btn {
-    // font-size: ;
-    @include set-mq(min-width, get-bp(desktop)) {
-      color: color-primary(light-red);
-    }
-  }
-}
+//   &__sign-btn.btn {
+//     // font-size: ;
+//     @include set-mq(min-width, get-bp(lg)) {
+//       color: color-primary(light-red);
+//     }
+//   }
+// }
 
 .content {
   &__heading {
-    @include set-mq(min-width, get-bp(desktop)) {
+    @include set-mq(min-width, get-bp(lg)) {
       font-size: size(lg-4);
     }
     font-weight: 500;

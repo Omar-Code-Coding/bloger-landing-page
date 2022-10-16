@@ -41,19 +41,19 @@
 
   &--login {
     color: color-neutral(very-dark-grayish-blue);
-    @include set-mq(min-width, get-bp(desktop)) {
+    @include set-mq(min-width, get-bp(lg)) {
       color: color-neutral(white);
     }
   }
 
   &--sign {
-    background: $btn-gradient;
+    background: get-bg-gradient(btn);
     &:hover {
       transform: translateY(-10%);
       box-shadow: 0 rem(1) rem(5) rgba($color: black, $alpha: 0.4);
     }
 
-    @include set-mq(min-width, get-bp(desktop)) {
+    @include set-mq(min-width, get-bp(lg)) {
       color: color-primary(light-red);
       background: color-neutral(white);
       &:hover {
@@ -74,7 +74,7 @@
   row-gap: rem(7);
   padding-block-start: rem(15);
 
-  @include set-mq(min-width, get-bp(desktop)) {
+  @include set-mq(min-width, get-bp(lg)) {
     flex-direction: row;
     border: unset;
     padding-block-start: unset;

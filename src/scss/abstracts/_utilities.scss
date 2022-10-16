@@ -15,27 +15,43 @@
     padding-inline: 20%;
   }
 
+  &--y-1 {
+    padding-block: rem(210) rem(85);
+  }
+
+  &--y-lg-1 {
+    // padding-block: ;
+  }
+
+  &--r-1 {
+    padding-inline-end: rem(85);
+  }
+
   &--r-lg-1 {
-    @include set-mq(min-width, get-bp(desktop)) {
+    @include set-mq(min-width, get-bp(xl)) {
       padding-inline-end: 16.7%;
     }
   }
 
   &--r-lg-2 {
-    @include set-mq(min-width, get-bp(desktop)) {
+    @include set-mq(min-width, get-bp(xl)) {
       padding-inline-end: 18%;
     }
   }
 
   &--r-lg-3 {
-    @include set-mq(min-width, get-bp(desktop)) {
-      padding-inline-end: 30%;
+    @include set-mq(min-width, get-bp(xl)) {
+      padding-inline-end: 40%;
       padding-inline-start: 0;
     }
   }
 
+  &--l-1 {
+    padding-inline-start: rem(210);
+  }
+
   &--l-lg {
-    @include set-mq(min-width, get-bp(desktop)) {
+    @include set-mq(min-width, get-bp(xl)) {
       padding-inline-start: 22%;
     }
   }
@@ -71,8 +87,14 @@
     position: absolute;
   }
 
+  &--abs-lg {
+    @include set-mq(min-width, get-bp(xl)) {
+      position: absolute;
+    }
+  }
+
   &--static-lg {
-    @include set-mq(min-width, get-bp(desktop)) {
+    @include set-mq(min-width, get-bp(xl)) {
       position: static;
     }
   }
@@ -80,7 +102,7 @@
 
 .left {
   &--lg-15 {
-    @include set-mq(min-width, get-bp(desktop)) {
+    @include set-mq(min-width, get-bp(xl)) {
       left: 15.5%;
     }
   }
@@ -88,15 +110,19 @@
 
 .right {
   &--lg-5 {
-    @include set-mq(min-width, get-bp(desktop)) {
+    @include set-mq(min-width, get-bp(xl)) {
       right: 5.5%;
     }
   }
 }
 
 .top {
-  &--lg-n41 {
-    @include set-mq(min-width, get-bp(desktop)) {
+  &--xl-n41 {
+    // @include set-mq(min-width, get-bp(xl)) {
+    //   top: -41%;
+    // }
+
+    @include set-mq-range(get-bp(xl), get-bp(xxl)) {
       top: -41%;
     }
   }

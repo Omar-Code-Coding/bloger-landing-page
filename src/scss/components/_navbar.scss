@@ -4,14 +4,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  align-self: normal;
   //   display: inline-block;
   position: relative;
-  @include set-mq(min-width, get-bp(desktop)) {
+  @include set-mq(min-width, get-bp(lg)) {
     width: 100%;
     margin: 0 0 0 rem(50);
   }
-
-  align-self: normal;
 
   &__logo {
     width: clamp(5.85rem, 7.013%, 6.31rem);
@@ -21,7 +20,6 @@
     cursor: pointer;
     width: 60px;
     height: 60px;
-
     outline: 0;
     border: 0;
     border-radius: 50%;
@@ -29,7 +27,7 @@
     background-color: transparent;
 
     // Hide btn in desktop size
-    @include set-mq(min-width, get-bp(desktop)) {
+    @include set-mq(min-width, get-bp(lg)) {
       display: none;
     }
 
@@ -43,12 +41,9 @@
     display: flex;
     flex-direction: column;
     row-gap: rem(25);
-
     width: 80vw;
-
     border-radius: rem(5);
     padding: rem(25) rem(15);
-
     background-color: color-neutral(white);
 
     // Relative to "dropdown-btn" class
@@ -58,7 +53,7 @@
     overflow: hidden;
     z-index: 1;
 
-    @include set-mq(min-width, get-bp(desktop)) {
+    @include set-mq(min-width, get-bp(lg)) {
       flex-direction: row;
       align-items: center;
       justify-content: space-between;

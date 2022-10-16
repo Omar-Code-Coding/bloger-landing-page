@@ -10,7 +10,8 @@
   // Choose the smallest value
   padding-inline: Min(rem(25), 6%);
   border-bottom-left-radius: rem(85);
-  background-image: url(/src/images/bg-pattern-intro.svg), $header-gradient;
+  background-image: url(/src/images/bg-pattern-intro.svg),
+    get-bg-gradient(header);
   background-size: 330%, 100%;
   background-repeat: no-repeat;
   background-position: 35% 33%, 0;
