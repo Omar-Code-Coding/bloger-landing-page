@@ -1,109 +1,162 @@
 import wait from "./helperFunctions.js";
 export default class Navbar {
   #toggleBtn = document.querySelector(".navbar__toggle");
-  #navbarContent = document.querySelector(".navbar__content");
+  #navbarContentParent = document.querySelector(".navbar__content");
+  #navbarContentChildren = [...this.#navbarContentParent.children];
 
   constructor() {
     // Events
-    this.#toggleBtn.addEventListener("click", this.#toggleMenu.bind(this));
-    window.addEventListener("resize", this.#initNavbar.bind(this));
-    this.#initNavbar();
+    this.#toggleBtn.addEventListener(
+      "click",
+      this.#toggleMenu.bind(
+        this,
+        this.#navbarContentChildren,
+        this.#navbarContentParent,
+        this.#toggleBtn
+      )
+    );
+    window.addEventListener(
+      "resize",
+      this.#initNavbar.bind(this, this.#navbarContentParent, this.#toggleBtn)
+    );
+    this.#initNavbar(this.#navbarContentParent, this.#toggleBtn);
   }
 
-  #initNavbar() {
+  #initNavbar(navbarContentParent, toggleBtn) {
     const windowWidth = window.innerWidth;
     // Expand navbar for desktop size
     if (windowWidth > 1024) {
-      return this.#navbarContent.classList.remove("menu-close");
+      return navbarContentParent.classList.remove("menu-close");
     }
 
     // Shrink navbar into a menu for mobile size
     if (windowWidth < 1024) {
-      this.#toggleBtnIcon("close");
-      return this.#navbarContent.classList.add("menu-close");
+      this.#toggleBtnIcon("close", toggleBtn);
+      return navbarContentParent.classList.add("menu-close");
     }
   }
 
-  #toggleMenu() {
+  #toggleMenu(navbarContentChildren, navbarContentParent, toggleBtn) {
     // Disable navbar menu
-    if (!this.#navbarContent.classList.contains("menu-close")) {
-      return this.#closeMenu();
+    if (!navbarContentParent.classList.contains("menu-close")) {
+      return this.#closeMenu(
+        navbarContentChildren,
+        navbarContentParent,
+        toggleBtn
+      );
     }
 
     // Active navbar menu
-    if (this.#navbarContent.classList.contains("menu-close")) {
-      return this.#openMenu();
+    if (navbarContentParent.classList.contains("menu-close")) {
+      return this.#openMenu(
+        navbarContentChildren,
+        navbarContentParent,
+        toggleBtn
+      );
     }
   }
 
   /* Active menu */
-  #openMenu() {
+  #openMenu(navbarContentChildren, navbarContentParent, toggleBtn) {
     // 1- Activate menu
-    this.#toggleBtnIcon("open");
-    this.#navbarContent.classList.remove("menu-close");
-    this.#expandAnimation();
+    this.#toggleBtnIcon("open", toggleBtn);
+    navbarContentParent.classList.remove("menu-close");
+    this.#animationExpand(navbarContentChildren, navbarContentParent);
   }
 
   /* Disable menu */
-  #closeMenu() {
-    this.#toggleBtnIcon("close");
-    this.#shrinkAnimation();
+  #closeMenu(navbarContentChildren, navbarContentParent, toggleBtn) {
+    this.#toggleBtnIcon("close", toggleBtn);
+    this.#animationCollapse(navbarContentChildren, navbarContentParent);
     // Disable transition after the animation finishes;
-    wait(300).then(() => this.#navbarContent.classList.add("menu-close"));
+    wait(300).then(() => navbarContentParent.classList.add("menu-close"));
   }
 
-  #toggleBtnIcon(state) {
+  #toggleBtnIcon(state, toggleBtn) {
     // Set btn icon to icon-close
     if (state === "open") {
-      this.#toggleBtn.classList.remove("toggle-close");
-      return this.#toggleBtn.classList.add("toggle-open");
+      toggleBtn.classList.remove("toggle-close");
+      return toggleBtn.classList.add("toggle-open");
     }
 
     // Set btn icon to icon-hamburger
     if (state === "close") {
-      this.#toggleBtn.classList.remove("toggle-open");
-      return this.#toggleBtn.classList.add("toggle-close");
+      toggleBtn.classList.remove("toggle-open");
+      return toggleBtn.classList.add("toggle-close");
     }
   }
 
-  #expandAnimation() {
-    // 2- Get menu height
-    const menuHeight = this.#navbarContent.clientHeight;
-    // 3- Set transition
-    this.#navbarContent.classList.add("closing");
-    wait(1)
-      .then(() => {
-        // 4- Wait x amount of time to set menu height for transition to work
-        this.#navbarContent.style.height = `${menuHeight}px`;
-        this.#navbarContent.style.display = "";
-
-        return wait(300);
+  #calcElementsHeight(elementS) {
+    return elementS
+      .map((element) => {
+        return Number(
+          window
+            .getComputedStyle(element)
+            .getPropertyValue("height")
+            .replace("px", "")
+            .trimEnd()
+        );
       })
-      .then(() => {
-        // 5- Remove transition class
-        this.#navbarContent.classList.remove("closing");
-        this.#navbarContent.style = "";
+      .reduce((previousElement, currentElement) => {
+        return previousElement + currentElement;
       });
   }
 
-  #shrinkAnimation() {
-    const menuHeight = this.#navbarContent.clientHeight;
-    // 1- Select "closing" class
-    this.#navbarContent.classList.add("closing");
-    const utilClass = document.querySelector(".closing");
-    // 2- Set "closing" class height to menu height
-    utilClass.style.height = `${menuHeight}px`;
+  #animationExpand(navbarContentChildren, navbarContentParent) {
+    // 1- Get menu height
+    let menuRowGap = Number(
+      window
+        .getComputedStyle(this.#navbarContentParent)
+        .getPropertyValue("row-gap")
+        .replace("px", "")
+        .trimEnd()
+    );
+    let menuHeight =
+      this.#calcElementsHeight(navbarContentChildren) + menuRowGap;
 
+    // 2- Set transition
+    navbarContentParent.classList.add("closing");
     wait(1)
       .then(() => {
-        // 3- Wait x amount of time to set height for Transition to work
-        this.#navbarContent.style.height = "0px";
-        return wait(300);
+        // 3- Wait x amount of time to set menu height for transition to work
+        navbarContentParent.style.height = `${menuHeight}px`;
+        navbarContentParent.style.display = "";
+
+        return wait(250);
       })
       .then(() => {
         // 4- Remove transition class
-        this.#navbarContent.classList.remove("closing");
-        this.#navbarContent.style = "";
+        navbarContentParent.classList.remove("closing");
+        navbarContentParent.style = "";
+      });
+  }
+
+  #animationCollapse(navbarContentChildren, navbarContentParent) {
+    // 1- Get necessery values to calculate Height to be assigned to "utilClass"
+    let menuRowGap = Number(
+      window
+        .getComputedStyle(this.#navbarContentParent)
+        .getPropertyValue("row-gap")
+        .replace("px", "")
+        .trimEnd()
+    );
+    let menuHeight =
+      this.#calcElementsHeight(navbarContentChildren) + menuRowGap;
+    // 1- Select "closing" class
+    navbarContentParent.classList.add("closing");
+    const utilClass = document.querySelector(".closing");
+    // 2- Set "closing" class height to calculated "menuHeight"
+    utilClass.style.height = `${menuHeight}px`;
+    wait(50)
+      .then(() => {
+        // 3- Wait x amount of time to set height for Transition to work
+        navbarContentParent.style.height = "0px";
+        return wait(250);
+      })
+      .then(() => {
+        // 4- Remove transition class
+        navbarContentParent.classList.remove("closing");
+        navbarContentParent.style = "";
       });
   }
 }

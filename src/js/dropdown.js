@@ -83,6 +83,7 @@ export default class Dropdown {
     let dropdownHeight =
       dropdown.clientHeight - (dropdownItemHeight + dropdownRowGap);
     dropdown.classList.add("collapsing");
+    console.log(dropdownHeight, dropdown.clientHeight);
     // --1- Set active accordion's height after x amount of time so that Transition start
     wait(1)
       .then(() => {
