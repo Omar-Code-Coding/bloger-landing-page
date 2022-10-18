@@ -16,8 +16,8 @@
   background-repeat: no-repeat;
   background-position: 35% 33%, 0;
   @include set-mq(min-width, get-bp(xl)) {
-    background-position: 35% 33%, 0;
-    background-size: 330%, 100%;
+    background-position: 10% 50%, 0;
+    background-size: 175%, 100%;
   }
 
   &__learn-btn.btn {
