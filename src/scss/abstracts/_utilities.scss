@@ -19,27 +19,29 @@
     padding-block: rem(210) rem(85);
   }
 
-  &--y-lg-1 {
-    // padding-block: ;
-  }
-
   &--r-1 {
     padding-inline-end: rem(85);
   }
 
-  &--r-lg-1 {
+  &--r-xl-13 {
     @include set-mq(min-width, get-bp(xl)) {
-      padding-inline-end: 16.7%;
+      padding-inline-end: 13%;
     }
   }
 
-  &--r-lg-2 {
+  &--r-xl-14 {
+    @include set-mq(min-width, get-bp(xl)) {
+      padding-inline-end: 14%;
+    }
+  }
+
+  &--r-xl-18 {
     @include set-mq(min-width, get-bp(xl)) {
       padding-inline-end: 18%;
     }
   }
 
-  &--r-lg-3 {
+  &--r-xl-40 {
     @include set-mq(min-width, get-bp(xl)) {
       padding-inline-end: 40%;
       padding-inline-start: 0;
@@ -50,7 +52,7 @@
     padding-inline-start: rem(210);
   }
 
-  &--l-lg {
+  &--l-xl {
     @include set-mq(min-width, get-bp(xl)) {
       padding-inline-start: 22%;
     }
@@ -64,13 +66,37 @@
     margin-block: 30vh 18%;
   }
 
+  /* Top start */
+  &--t-xs-75 {
+    @include set-mq(min-width, get-bp(xs)) {
+      margin-block-start: 75%;
+    }
+  }
+
+  &--t-lg-45 {
+    @include set-mq-range(get-bp(lg), get-bp(xl)) {
+      margin-block-start: 45%;
+    }
+  }
+
+  &--t-xl-14 {
+    @include set-mq(min-width, get-bp(xl)) {
+      margin-block-start: 14%;
+    }
+  }
+  /* Top end*/
+  &--b-18 {
+    margin-block-end: 18%;
+  }
+
   &--l-1 {
     margin-inline-start: rem(7);
   }
-}
 
-/* Border */ ///////////////////////////////////////////////////////////////
-//////////////
+  &--l-2 {
+    margin-inline-start: rem(15);
+  }
+}
 
 .border {
   &--t {
@@ -87,7 +113,7 @@
     position: absolute;
   }
 
-  &--abs-lg {
+  &--abs-xl {
     @include set-mq(min-width, get-bp(xl)) {
       position: absolute;
     }
@@ -101,15 +127,15 @@
 }
 
 .left {
-  &--lg-15 {
+  &--xl-15 {
     @include set-mq(min-width, get-bp(xl)) {
-      left: 15.5%;
+      left: 15%;
     }
   }
 }
 
 .right {
-  &--lg-5 {
+  &--xl-5 {
     @include set-mq(min-width, get-bp(xl)) {
       right: 5.5%;
     }
@@ -118,18 +144,38 @@
 
 .top {
   &--xl-n41 {
-    // @include set-mq(min-width, get-bp(xl)) {
-    //   top: -41%;
-    // }
-
     @include set-mq-range(get-bp(xl), get-bp(xxl)) {
       top: -41%;
+    }
+  }
+
+  &--xl-n50 {
+    @include set-mq(min-width, get-bp(xl)) {
+      top: -50%;
     }
   }
 }
 
 .bottom {
-  &--65 {
+  &--xs-65 {
     bottom: 65%;
+  }
+}
+
+.wd {
+  &--100 {
+    width: 100%;
+  }
+
+  &--xl-90 {
+    @include set-mq(min-width, get-bp(xl)) {
+      width: 90%;
+    }
+  }
+
+  &--xl-60 {
+    @include set-mq(min-width, get-bp(xl)) {
+      width: 60vw;
+    }
   }
 }

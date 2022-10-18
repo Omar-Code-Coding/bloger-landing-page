@@ -35,15 +35,23 @@
     }
   }
 
-  &--bg-gradient {
+  &--pad {
     padding-block: rem(210) rem(85);
+    @include set-mq(min-width, get-bp(lg)) {
+      padding-block: rem(60);
+      padding-inline: rem(125);
+    }
+  }
+
+  &--bg-gradient {
     background: url(/src/images/bg-pattern-circles.svg) no-repeat,
       get-bg-gradient(card);
     background-position: center -230px, 0;
     background-size: 580px auto, auto;
 
     @include set-mq(min-width, get-bp(xl)) {
-      background-position: left -15rem, 0;
+      background-position: -60% 85%, 0;
+      background-size: 1050px auto, auto;
     }
   }
 
@@ -105,14 +113,5 @@
   }
 
   &__img {
-    &--wd-pct {
-      width: 100%;
-    }
-
-    &--wd-vw {
-      @include set-mq(min-width, get-bp(xl)) {
-        width: 60vw;
-      }
-    }
   }
 }

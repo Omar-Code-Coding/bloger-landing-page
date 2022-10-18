@@ -11,7 +11,7 @@
   background-color: color-neutral(very-dark-black-blue);
 }
 
-@include set-mq(min-width, get-bp(desktop)) {
+@include set-mq(min-width, get-bp(xl)) {
   .footer {
     flex-direction: row;
     justify-content: space-evenly;

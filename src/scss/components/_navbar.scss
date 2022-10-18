@@ -9,7 +9,6 @@
   position: relative;
   @include set-mq(min-width, get-bp(lg)) {
     width: 100%;
-    margin: 0 0 0 rem(50);
   }
 
   &__logo {
@@ -59,6 +58,7 @@
       justify-content: space-between;
       transform: unset;
       position: unset;
+      padding-inline: rem(80) rem(40);
       background-color: transparent;
     }
   }
