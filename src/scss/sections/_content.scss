@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-block: 5% 20%;
+  padding-block: 10% 20%;
   &__heading {
     padding-block: 20% 10%;
     @include set-mq(min-width, get-bp(xl)) {

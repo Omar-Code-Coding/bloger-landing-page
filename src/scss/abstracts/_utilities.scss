@@ -3,16 +3,26 @@
 @use "mixins" as *;
 
 .pad {
-  &--x-1 {
-    padding-inline: 10%;
+  &--x-xs-10 {
+    @include set-mq-range(get-bp(xs), get-bp(lg)) {
+      padding-inline: 10%;
+    }
   }
 
-  &--x-2 {
-    padding-inline: 14%;
+  &--x-xs-14 {
+    @include set-mq-range(get-bp(xs), get-bp(lg)) {
+      padding-inline: 14%;
+    }
   }
 
   &--x-3 {
     padding-inline: 20%;
+  }
+
+  &--x-xl-10 {
+    @include set-mq(min-width, get-bp(xl)) {
+      padding-inline: 10%;
+    }
   }
 
   &--y-1 {
@@ -79,9 +89,9 @@
     }
   }
 
-  &--t-xl-14 {
+  &--t-xl-20 {
     @include set-mq(min-width, get-bp(xl)) {
-      margin-block-start: 14%;
+      margin-block-start: 20%;
     }
   }
   /* Top end*/
@@ -127,9 +137,9 @@
 }
 
 .left {
-  &--xl-15 {
+  &--xl-2 {
     @include set-mq(min-width, get-bp(xl)) {
-      left: 15%;
+      left: 2%;
     }
   }
 }
@@ -173,9 +183,9 @@
     }
   }
 
-  &--xl-60 {
+  &--xl-70 {
     @include set-mq(min-width, get-bp(xl)) {
-      width: 60vw;
+      width: 70vw;
     }
   }
 }
