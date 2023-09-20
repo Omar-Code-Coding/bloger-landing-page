@@ -9,7 +9,13 @@ import Dropdown from "./dropdown.js";
 import { renderCardImg } from "./changeCardImage.js";
 
 const navbar = new Navbar();
-const navDropdown = new Dropdown(".nav");
+
+const dropdowns = [...document.querySelectorAll(".dropdown")].map(
+  (d) => new Dropdown(d)
+);
+console.log(dropdowns);
+
+// const navDropdown = new Dropdown(".nav");
 // Set "card__img" on init
 renderCardImg(1200, ["img-1", "img-3"], [editorDesktopImg, laptopDesktopImg]);
 renderCardImg(0, ["img-1", "img-3"], [editorMobileImg, laptopMobileImg]);
