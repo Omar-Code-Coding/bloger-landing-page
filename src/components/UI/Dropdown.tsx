@@ -22,7 +22,7 @@ function Dropdown({ title, items, className }: DropdownProps) {
     setIsKeyboardActive,
     setCurrentFocus,
   } = useRoveFocus<HTMLDivElement>({
-    container: dropdownRef?.current,
+    container: dropdownRef?.current as HTMLDivElement,
     items: dropdownItemsRef?.current ?? [],
     onEnterPress: handleEnterKeyPress,
     onEscapePress: handleEscapeKeyPress,
