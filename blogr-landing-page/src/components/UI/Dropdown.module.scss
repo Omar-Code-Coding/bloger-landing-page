@@ -1,0 +1,93 @@
+@use "../../utils.scss" as *;
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: 64em) {
+    position: relative;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 300ms ease-out;
+    border-radius: rem(5);
+
+    @media screen and (min-width: 64em) {
+      position: absolute;
+      z-index: 100;
+      width: rem(130);
+      top: calc(100% + 0.25em);
+    }
+  }
+
+  &__content[aria-hidden="false"] {
+    grid-template-rows: 1fr;
+  }
+
+  &__toggle {
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+    color: var(--text-primary);
+    gap: 0 rem(5);
+
+    &:hover {
+      color: var(--text-secondary);
+      text-decoration: underline;
+    }
+
+    // Add arrow next to Dropdown toggle
+    &::after {
+      content: url("../../assets/icon-arrow-dark.svg");
+      display: block;
+      height: rem(10);
+      width: rem(10);
+
+      transform: rotate(360deg);
+      transform-origin: 50% 100%;
+      transition: 300ms ease;
+    }
+
+    @media screen and (min-width: 64em) {
+      color: var(--text-accent);
+      &:hover {
+        color: var(--text-tertiary);
+      }
+      &::after {
+        content: url("../../assets/icon-arrow-light.svg");
+      }
+    }
+  }
+
+  &__toggle[data-active="true"]::after {
+    transform: rotate(180deg);
+  }
+
+  &__menu {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    border-radius: rem(5);
+    background-color: var(--background-color-secondary);
+    @media screen and (min-width: 64em) {
+      align-items: flex-start;
+      box-shadow: rem(5) rem(5) rem(5) rgba($color: #000000, $alpha: 0.3);
+    }
+  }
+
+  &__item {
+    padding: rem(10) rem(20);
+
+    &:first-child {
+      padding-block: rem(25) rem(10);
+    }
+
+    &:last-child {
+      padding-block: rem(10) rem(25);
+    }
+  }
+}

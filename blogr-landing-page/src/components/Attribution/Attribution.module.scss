@@ -1,0 +1,16 @@
+.attribution {
+  color: var(--text-tertiary);
+
+  @media only screen and (min-width: 64em) {
+    align-self: flex-end;
+  }
+
+  > a {
+    color: var(--text-accent);
+    text-decoration: underline;
+  }
+
+  > a:hover {
+    color: var(--text-tertiary);
+  }
+}

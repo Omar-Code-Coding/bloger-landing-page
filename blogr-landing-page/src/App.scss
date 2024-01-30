@@ -1,0 +1,12 @@
+#root {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  // grid-template-rows: auto 1fr auto;
+  grid-template-rows:
+    [hd] auto
+    [content-start heading] auto
+    [section-1] auto
+    [section-2] auto
+    [section-3] auto
+    [content-end footer] auto;
+}

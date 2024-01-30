@@ -1,0 +1,70 @@
+@use "../../utils.scss" as *;
+
+.nav-menu {
+  position: relative;
+
+  &__toggle {
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    outline: 0;
+    border: 0;
+    border-radius: 50%;
+    padding: rem(15) rem(10);
+    background-color: transparent;
+
+    // Create background shadow effect on click
+    &:active {
+      animation: btnOnClick 280ms ease-out;
+    }
+  }
+
+  &__content-wrapper {
+    // Position the Content relative to "nav-menu__toggle"
+    position: absolute;
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 300ms ease-in;
+
+    top: calc(100% + 0.25em);
+    right: 0;
+    z-index: 1;
+  }
+
+  &__content-wrapper[aria-hidden="false"] {
+    grid-template-rows: 1fr;
+  }
+
+  &__content {
+    overflow: hidden;
+    padding: 0 rem(15);
+    border-radius: rem(5);
+    width: 80vw;
+    background-color: var(--background-color-primary);
+    > * {
+      padding-block: rem(25);
+    }
+  }
+}
+
+@keyframes btnOnClick {
+  0% {
+    background-color: rgba($color: #000000, $alpha: 0);
+  }
+
+  50% {
+    background-color: rgba($color: #000000, $alpha: 0.2);
+  }
+
+  100% {
+    background-color: rgba($color: #000000, $alpha: 0);
+  }
+}
+
+.toggle-close::after {
+  content: url("../../assets/icon-hamburger.svg");
+}
+
+.toggle-open::after {
+  content: url("../../assets//icon-close.svg");
+}

@@ -1,0 +1,26 @@
+@use "../../utils.scss" as *;
+.link {
+  font-size: rem(15);
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-align: center;
+  cursor: pointer;
+
+  @media (min-width: var(--breakpoint-lg)) {
+    font-size: rem(13);
+    text-align: left;
+  }
+
+  &:hover,
+  &:focus {
+    color: var(--text-primary);
+    text-decoration: underline;
+    @media (min-width: var(--breakpoint-lg)) {
+      font-weight: 700;
+    }
+  }
+
+  &:focus {
+    outline: solid 2px;
+  }
+}

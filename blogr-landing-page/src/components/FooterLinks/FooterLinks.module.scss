@@ -1,0 +1,32 @@
+@use "../../utils.scss" as *;
+.footer {
+  &__links {
+    text-align: center;
+    text-decoration: none;
+    text-transform: capitalize;
+  }
+
+  &__links-heading {
+    // Add space between heading and links
+    line-height: rem(65);
+    font-size: var(--font-primary);
+    color: var(--text-tertiary);
+
+    &:hover {
+      color: var(--text-tertiary);
+    }
+  }
+
+  &__links-list {
+    // Add space between links
+    line-height: rem(30);
+
+    a {
+      color: var(--text-accent);
+    }
+
+    a:hover {
+      color: var(--text-tertiary);
+    }
+  }
+}

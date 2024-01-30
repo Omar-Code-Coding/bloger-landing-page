@@ -1,0 +1,35 @@
+@use "../../utils.scss" as *;
+
+.article {
+  max-width: clamp(28ch, 34vw, 50ch);
+  &__title {
+    margin-block-end: rem(25);
+    font-weight: 600;
+    font-size: var(--font-tertiary);
+
+    @media screen and (min-width: 75em) {
+      font-size: var(--font-tertiary);
+    }
+
+    &--large {
+      font-size: var(--font-secondary);
+    }
+
+    &--light {
+      color: var(--text-tertiary);
+    }
+  }
+
+  &__paragraph {
+    line-height: rem(25);
+    font-weight: 300;
+
+    @media screen and (min-width: 75em) {
+      font-size: var(--font-primary);
+    }
+
+    &--light {
+      color: var(--text-accent);
+    }
+  }
+}

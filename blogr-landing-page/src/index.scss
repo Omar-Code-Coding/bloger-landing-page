@@ -1,0 +1,108 @@
+@use "./utils.scss" as *;
+
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@300;500;600&family=Ubuntu:wght@400;500;700&display=swap");
+
+:root {
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 36em;
+  --breakpoint-md: 48em;
+  --breakpoint-lg: 63em;
+  --breakpoint-xl: 75em;
+
+  --focus-outline: 1px solid #25252d;
+
+  --font-family-primary: "Overpass";
+  --font-family-secondary: "Ubuntu";
+
+  --font-primary: 1rem;
+  --font-secondary: 2.125rem;
+  --font-tertiary: 1.625rem;
+  --font-accent: 3.75rem;
+
+  --text-primary: #1f3f5b;
+  --text-secondary: #4b5862;
+  --text-tertiary: #ffffff;
+  --text-accent: #e4e4e4;
+
+  // buttons color for each type
+  --btn-color-primary: #ff525d;
+  --btn-color-secondary: #ffffff;
+  --btn-color-tertiary: #4b5862;
+  --btn-color-outline: #ffffff;
+  --btn-color-gradient: #ffffff;
+
+  --btn-hover-color-primary: #ffffff;
+  --btn-hover-color-secondary: #4b5862;
+  --btn-hover-color-outline: #4b5862;
+  --btn-hover-color-gradient: #4b5862;
+
+  --btn-hover-background-primary: #fffffe33;
+  --btn-hover-background-secondary: #ffffff;
+  --btn-hover-background-outline: #ffffff;
+
+  --btn-background-primary: #ffffff;
+  --btn-background-secondary: transparent;
+  --btn-background-tertiary: transparent;
+  --btn-background-outline: transparent;
+  --btn-background-gradient: linear-gradient(135deg, #ff8f70, #ff3d54);
+
+  --btn-border-outline: 1px solid #ffffff;
+
+  --background-color-primary: #ffffff;
+  --background-color-secondary: #f1f1f2;
+  --background-color-tertiary: #25252d;
+
+  --background-gradient-primary: linear-gradient(135deg, #ff8f70, #ff3d54 100%);
+  --background-gradient-secondary: linear-gradient(
+    135deg,
+    #2c2d3f 33%,
+    #3f4164 100%
+  );
+  font-family: var(--font-family-primary), sans-serif;
+  font-size: var(--font-primary);
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+*:focus {
+  outline: var(--focus-outline);
+}
+
+html {
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  color: var(--text-secondary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-primary);
+}

@@ -1,0 +1,21 @@
+@use "../../utils.scss" as *;
+
+.heading {
+  padding-inline: rem(20);
+  margin-block: rem(100) rem(40);
+  text-align: center;
+
+  &__main {
+    font-weight: 500;
+    margin-block-end: rem(15);
+    color: var(--text-tertiary);
+    @media screen and (min-width: 64em) {
+      font-size: var(--font-accent);
+    }
+  }
+
+  &__sub {
+    color: var(--text-tertiary);
+    font-weight: 300;
+  }
+}

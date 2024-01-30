@@ -1,0 +1,17 @@
+@use "../../utils.scss" as *;
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-self: normal;
+  gap: rem(25);
+
+  > * {
+    text-transform: capitalize;
+  }
+
+  @media screen and (min-width: 64em) {
+    align-items: center;
+    flex-direction: row;
+  }
+}

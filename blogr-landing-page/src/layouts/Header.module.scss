@@ -1,0 +1,27 @@
+@use "../utils" as *;
+
+.header {
+  grid-row: hd;
+  grid-column: span 12;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  padding-block: rem(44) rem(129);
+
+  // Choose the smallest value
+  padding-inline: min(rem(25), 6%);
+  border-bottom-left-radius: rem(85);
+  background-image: url("/src/assets/bg-pattern-intro.svg"),
+    var(--background-gradient-primary);
+  background-size: 330%, 100%;
+  background-repeat: no-repeat;
+  background-position: 35% 33%, 0;
+  @media screen and (min-width: 75) {
+    background-position: 10% 50%, 0;
+    background-size: 175%, 100%;
+  }
+
+  @media screen and (min-width: 64em) {
+    padding-inline: Max(rem(150), 11%);
+  }
+}

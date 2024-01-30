@@ -1,0 +1,14 @@
+@use "../../utils.scss" as *;
+
+.header-cta {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  // align-self: normal;
+  row-gap: rem(7);
+  padding-block-start: rem(15);
+
+  & > button:last-of-type {
+    margin-inline-start: rem(15);
+  }
+}
